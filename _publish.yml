@@ -1,0 +1,6 @@
+- source: project
+  quarto-pub:
+    - id: 854908e4-d8e0-4de1-935a-95cfd165a3f3
+      url: 'https://stats-51brick.quarto.pub/statonline_styleguide'
+  statOnline:
+    - server: 128.118.123.145:1855

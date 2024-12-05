@@ -1,0 +1,35 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "format: live-html\n",
+        "---\n",
+        "\n",
+        "\n",
+        "# Interactives\n",
+        "\n",
+        "\n",
+        "\n",
+        "```{webr}\n",
+        "for (x in 1:5) {\n",
+        "  print(10 + x)\n",
+        "}\n",
+        "```"
+      ],
+      "id": "60eb4e81"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Library/Frameworks/Python.framework/Versions/3.12/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

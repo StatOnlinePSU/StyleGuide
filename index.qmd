@@ -1,0 +1,38 @@
+---
+title-block-banner: styleguidebanner.png
+title-block-banner-color: light
+titlegraphic: styleguidebanner.png
+sidebar: false
+
+navigation: empty
+listing:
+  id: lessons
+  contents:
+    - basic_formatting.qmd
+    - Links.qmd
+    - layout.qmd
+    - tables.qmd
+    - Components.qmd
+    - equations.qmd
+    - figures.qmd
+    - Video.qmd
+    - code.qmd
+    - Sample_lesson.qmd
+  type: grid
+  grid-columns: 5
+  grid-item-align: center
+  fields: [image,title, categories, file-modified]
+  field-display-names:
+    file-modified: "Updated:"
+  date-format: short
+  #categories: true # this will add the categories to the right below the toc
+  sort: "filename"
+---
+
+## About this course {.unnumbered}
+
+Welcome to our comprehensive style guide for formatting online course notes using Quarto. This guide is designed to help you maintain consistency, readability, and professional presentation across all course materials. Whether you are creating content from scratch or editing existing notes, our guidelines cover everything from structure and formatting to best practices for visualizations and code integration. By following this style guide, you'll ensure that your course notes are clear, engaging, and accessible for all students.
+
+
+::: {#lessons}
+:::

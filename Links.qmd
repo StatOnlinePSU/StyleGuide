@@ -1,0 +1,70 @@
+---
+categories: [External links, Internal links, Cross-refs]
+image: /assets/link.png
+---
+
+# Links
+
+**Basic link format**
+
+``` md
+[name of url](url)
+```
+
+## External Links
+
+::: {#exm-link1}
+Example of an external link using...
+
+``` md
+[ITS Help Desk](https://it.psu.edu/get-support)
+```
+
+[ITS Help Desk](https://it.psu.edu/get-support)
+:::
+
+## Internal Links
+
+### Cross-refs {.unnumbered .unlisted}
+
+You can reference any cross referenced item like figures (`#fig`), examples (`#exm`), definitions (`#def`), videos (`#vid`), or equations (`#eq`) by using `@fig-name`.
+
+::: {#exm-scatter}
+We can add a figure like @fig-scattergestvswtg3, such that you can preview it by hovering over this link using `@fig-scattergestvswtg3`.
+:::
+
+### Links to other pages in the site {.unnumbered}
+
+Create internal links to other pages in the site by using...
+
+``` md
+[name of page](nameofpage.qmd)
+```
+
+::: {#exm-img}
+See more on [Figures](figures.qmd).
+
+Is created by...
+
+``` md
+See more on [Figures](figures.qmd)
+```
+:::
+
+### Links to data files {.unnumbered}
+
+We often link to data files. For data files include them in the 'Data_files' folder and link to them using...
+
+``` md
+([name of data set](Data_files/name_of_data_set.txt){download="" target="_blank"})
+```
+
+::: {#exm-birth}
+([birthsmokers.txt](Data_files/birthsmokers.txt){download="" target="_blank"})
+
+is created by...
+
+``` md
+([birthsmokers.txt](Data_files/birthsmokers.txt){download="" target="_blank"})
+```
+:::

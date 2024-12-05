@@ -1,0 +1,424 @@
+---
+categories: [Examples, Definitions, Try its, Objectives]
+image: /assets/journal-richtext.svg
+---
+
+# Sample Lesson
+
+## Overview {.unnumbered .unlisted}
+
+::: objectiveblock
+<i class="bi bi-check2-circle"></i>[Objectives]{.callout-header}
+
+Upon completion of this lesson, you should be able to:
+
+1.  Objective 1
+2.  Objective 2
+3.  Objective 3
+:::
+
+#### Code to create objective block {.unnumbered .unlisted}
+
+``` md
+:::{.objectiveblock}
+
+<i class="bi bi-check2-circle"></i><span class="callout-header">Objectives</span>
+
+Upon completion of this lesson, you should be able to:
+
+1. Objective 1
+2. Objective 2
+3. Objective 3
+:::
+```
+
+## First numbered subpage
+
+### H3 numbered sub-sub page
+
+``` md
+### H3 numbered sub-sub page
+```
+
+### H3 for no-numbered sub-sub page {.unnumbered .unlisted}
+
+To have a heading not listed use {.unnumbered .unlisted} after the header like this...
+
+``` md
+#### H4 not numbered {.unnumbered .unlisted}
+```
+
+#### H4 not numbered
+
+##### H5 not numbered {.unnumbered .unlisted}
+
+## Examples
+
+Example block are built in cross refs in Quarto that we have styled using the .scss files. The first header inside the block will become the example title. Do not add the word 'Example' or number them. That is done automatically.
+
+``` md
+::: {#exm-nameofexample}
+### Title
+
+Example content here
+
+::: {.card .card-body .bg-light .ms-3 .mb-3 .pt-0}
+
+#### Answer
+
+:::
+
+:::
+```
+
+Creates...
+
+::: {#exm-nameofexample}
+### Title
+
+Example content here
+
+::: {.card .card-body .bg-light .ms-3 .mb-3 .pt-0}
+
+#### Answer
+
+:::
+:::
+
+### Examples with Decorative Thumbnails {.unnumbered}
+
+Add decorative thumbnails to examples using `![](assets/imagename){ fig-alt="" width="20%" .img-fluid .float-end .rounded .rounded-4 .lightbox .m-3}`
+
+For example...
+
+::: {#exm-nameofexample1}
+### Title
+![](assets/vegetarian_airline_meal.jpg){ fig-alt="Vegetarian meal tray on flight" width="20%" .img-fluid .float-end .rounded .rounded-4 .lightbox .m-3}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+::: {.card .card-body .bg-light .ms-3 .mb-3 .pt-0}
+
+#### Answer
+
+:::
+:::
+
+### Unnumbered Examples {.unnumbered}
+
+Some examples we do not want to have auto numbered. We can add a left border using...
+`:::{.border-start .p-3 .border-rounded .rounded-3 .mb-3 .border-success}`
+
+Which creates...
+
+:::{.border-start .ps-3 .border-rounded .rounded-3 .mb-3 .border-success}
+#### Example
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+:::
+
+## Definitions
+
+Definitions are built in as cross references in Quarto using `#def-`
+
+``` md
+::: {#def-term1}
+#### Term
+Definition of the term
+:::
+```
+
+creates...
+
+::: {#def-term1}
+#### Term
+
+Definition of the term
+:::
+
+## Equation formats
+
+::: {.callout-note appearance="minimal"}
+#### Title of equation
+
+$$z=\dfrac{x-\mu}{s}$$
+:::
+
+using...`::: {.callout-note appearance="minimal"}`
+
+``` md
+::: {.callout-note appearance="minimal"}
+#### Title of equation
+
+$$z=\dfrac{x-\mu}{s}$$
+:::
+```
+
+## Try its!
+
+### <i class="bi bi-question-octagon-fill text-warning"></i> Try It! {.unnumbered}
+
+::: tryit
+The question goes here!
+
+```{=html}
+<button class="btn btn-outline-success collapsed"  type="submit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Answer
+</button>
+```
+::: {#collapseExample .collapse}
+::: {.card .card-body .bg-light}
+The answer goes here
+:::
+:::
+:::
+
+### Code for Try it! {.unnumbered .unlisted}
+
+````md
+### <i class="bi bi-question-octagon-fill text-warning"></i> Try It! {.unnumbered}
+::: {.tryit}
+
+The question goes here!
+
+```{=html}
+<button class="btn btn-outline-success collapsed"  type="submit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Answer
+</button>
+```
+:::
+:::: {#collapseExample .collapse}
+::: {.card .card-body .bg-light}
+The answer goes here
+:::
+:::
+````
+
+::: {.callout-caution appearance="minimal"}
+**Note!**\
+For each try it on a page, change the id= in the html code \[3 places\]
+:::
+
+## Statistical Software Output
+
+::: {.mticon .float-end .d-flex}
+:::
+
+### Minitab
+
+#### Icon
+
+To show the Minitab icon to the right, use...
+
+``` md
+::: {.mticon .float-end .d-flex}
+:::
+```
+
+::: {.mticon .float-end .d-flex}
+:::
+
+Minitab output has a style associated with it in the light and dark custom scss.
+
+For example, Minitab output with some parts highlighted using {.mark}...
+
+::: minitab_output
+#### Coefficients
+
+| Term     | Coef  | SE Coef       | T-Value | P-Value | VIF  |
+|----------|-------|---------------|---------|---------|------|
+| Constant | -2546 | 457           | -5.57   | 0.000   |      |
+| Gest_0   | 147.2 | [12.0]{.mark} | 12.29   | 0.000   | 1.00 |
+
+: {.w-auto .table-sm}
+
+#### Regression Equation
+
+[Wgt_0 = -2546 + 147.2 Gest_0]{.mark}
+:::
+
+#### Code for Minitab Region
+
+```md
+::: minitab_output
+#### Coefficients
+
+| Term     | Coef  | SE Coef | T-Value | P-Value | VIF  |
+|----------|-------|---------|---------|---------|------|
+| Constant | -2546 | 457     | -5.57   | 0.000   |      |
+| Gest_0   | 147.2 | [12.0]{.mark}    | 12.29   | 0.000   | 1.00 |
+
+: {.w-auto .table-sm}
+
+#### Regression Equation
+
+[Wgt_0 = -2546 + 147.2 Gest_0]{.mark}
+:::
+```
+
+### R
+
+#### R Icon
+
+::: {.ricon .float-end .d-flex}
+:::
+
+To add the R icon to the right, use...
+
+``` md
+::: {.ricon .float-end .d-flex}
+:::
+```
+
+Graphs made with R should include the following...
+
+```` markdown
+```{{r message=FALSE, warning=FALSE, error=FALSE, out.width="70%"}}
+#| label: fig-namefofigure
+#| fig-alt: alt text 
+#| fig-cap: Caption for figure
+#| eval: true
+#| echo: false
+#| lightbox: true
+
+## actual code
+```
+````
+
+#### Hidden Code using `echo:false`
+
+```{r message=FALSE, warning=FALSE, error=FALSE, out.width="70%"}
+#| label: fig-scattergestvswtg3
+#| fig-alt: Scatterplot of Wgt (explanatory) vs Gest (response) grouped by smoking status. 
+#| fig-cap: Scatterplot of Wgt vs Gest by Smoker Status
+#| eval: true
+#| echo: false
+#| lightbox: true
+
+# Load the new data set
+
+smoker <- read.table("Data_files/birthsmokers.txt", header = TRUE)
+attach(smoker)
+
+model.13 <- lm(Wgt ~ Gest + Smoke)
+
+
+plot(Gest, Wgt, type="n", las=1,)
+for (i in 1:32) points(Gest[i], Wgt[i], pch=Smoke[i], col=Smoke[i])
+for (i in c(0, 1)) {
+  points(Gest[Smoke == i], Wgt[Smoke == i], pch = i + 1, col = ifelse(i == 0, "blue", "red"))
+  lines(Gest[Smoke == i], fitted(model.13)[Smoke == i],
+        lty = ifelse(i == 0, "solid", "solid"), col = ifelse(i == 0, "blue", "red"))
+ # Manually specifying equation labels and positions
+  if (i == 0) {
+    text(37, 3200, expression(italic(hat(y) == paste(-2390 + 143 * x))), col = "blue")
+  } else {
+    text(41, 2900, expression(italic(hat(y) == paste(-2635 + 143 * x))), col = "red")
+  }
+}
+
+
+# Legend for Smoke levels
+legend("topleft", legend = c("Smoke = 0", "Smoke = 1"),
+       col = c("blue", "red"), pch = c(1, 2), inset = 0.02)
+
+detach(smoker)
+
+```
+
+#### Showing Code using `echo:true`
+
+```{r message=FALSE, warning=FALSE, error=FALSE, out.width="70%"}
+#| label: fig-scattergestvswtg1
+#| fig-alt: Scatterplot of Wgt (explanatory) vs Gest (response) grouped by smoking status. 
+#| fig-cap: Scatterplot of Wgt vs Gest by Smoker Status
+#| eval: true
+#| echo: true
+#| lightbox: true
+
+# Load the new data set
+
+smoker <- read.table("Data_files/birthsmokers.txt", header = TRUE)
+attach(smoker)
+
+model.13 <- lm(Wgt ~ Gest + Smoke)
+
+
+plot(Gest, Wgt, type="n", las=1,)
+for (i in 1:32) points(Gest[i], Wgt[i], pch=Smoke[i], col=Smoke[i])
+for (i in c(0, 1)) {
+  points(Gest[Smoke == i], Wgt[Smoke == i], pch = i + 1, col = ifelse(i == 0, "blue", "red"))
+  lines(Gest[Smoke == i], fitted(model.13)[Smoke == i],
+        lty = ifelse(i == 0, "solid", "solid"), col = ifelse(i == 0, "blue", "red"))
+ # Manually specifying equation labels and positions
+  if (i == 0) {
+    text(37, 3200, expression(italic(hat(y) == paste(-2390 + 143 * x))), col = "blue")
+  } else {
+    text(41, 2900, expression(italic(hat(y) == paste(-2635 + 143 * x))), col = "red")
+  }
+}
+
+
+# Legend for Smoke levels
+legend("topleft", legend = c("Smoke = 0", "Smoke = 1"),
+       col = c("blue", "red"), pch = c(1, 2), inset = 0.02)
+
+detach(smoker)
+
+```
+
+#### Collapsing code using `#| code-fold: true`
+
+```` markdown
+```{{r, echo=TRUE, eval=FALSE}}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+```
+````
+
+**Example**
+
+```{r message=FALSE, warning=FALSE, error=FALSE, out.width="70%"}
+#| label: fig-scattergestvswtg4
+#| fig-alt: Scatterplot of Wgt (explanatory) vs Gest (response) grouped by smoking status. 
+#| fig-cap: Scatterplot of Wgt vs Gest by Smoker Status
+#| eval: true
+#| code-fold: true
+#| code-summary: "Show the code"
+#| lightbox: true
+
+# Load the new data set
+
+smoker <- read.table("Data_files/birthsmokers.txt", header = TRUE)
+attach(smoker)
+
+model.13 <- lm(Wgt ~ Gest + Smoke)
+
+
+plot(Gest, Wgt, type="n", las=1,)
+for (i in 1:32) points(Gest[i], Wgt[i], pch=Smoke[i], col=Smoke[i])
+for (i in c(0, 1)) {
+  points(Gest[Smoke == i], Wgt[Smoke == i], pch = i + 1, col = ifelse(i == 0, "blue", "red"))
+  lines(Gest[Smoke == i], fitted(model.13)[Smoke == i],
+        lty = ifelse(i == 0, "solid", "solid"), col = ifelse(i == 0, "blue", "red"))
+ # Manually specifying equation labels and positions
+  if (i == 0) {
+    text(37, 3200, expression(italic(hat(y) == paste(-2390 + 143 * x))), col = "blue")
+  } else {
+    text(41, 2900, expression(italic(hat(y) == paste(-2635 + 143 * x))), col = "red")
+  }
+}
+
+
+# Legend for Smoke levels
+legend("topleft", legend = c("Smoke = 0", "Smoke = 1"),
+       col = c("blue", "red"), pch = c(1, 2), inset = 0.02)
+
+detach(smoker)
+
+```
+
+
+
+
+

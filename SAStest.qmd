@@ -1,0 +1,25 @@
+---
+format: html
+jupyter: sas
+self-contained: false
+include-in-header: styleFixer.html
+---
+
+# Quarto Demo with SAS {.unnumbered}
+
+### Jupyter SAS kernel
+
+```{python}
+import saspy
+import pandas as pd
+
+sas = saspy.SASsession()
+```
+
+
+```{sas}
+proc candisc data=sashelp.iris out=outcan distance anova;
+   class Species;
+   var SepalLength SepalWidth PetalLength PetalWidth;
+run;
+```

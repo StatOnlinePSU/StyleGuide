@@ -1,0 +1,25 @@
+# Web Resources {.unnumbered}
+
+-   [Quarto -- Guide](https://quarto.org/docs/guide/)
+
+-   [Quarto -- Gallery](https://quarto.org/docs/gallery/)
+
+-   [Online Q&A- Discussions on GitHub](https://github.com/quarto-dev/quarto-cli/discussions)
+
+-   [Quarto tips I've found around the Web (machlis.com)](https://apps.machlis.com/shiny/quartotips/)
+
+-   [WebPlotDigitizer - Copyright 2010-2024 Ankit Rohatgi (automeris.io)](https://apps.automeris.io/wpd/)
+
+-   [Try pandoc!](https://pandoc.org/try/) for converting html to markdown
+
+-   [Bootstrap Icons · Official open source SVG icon library for Bootstrap (getbootstrap.com)](https://icons.getbootstrap.com/)
+
+-   [bootswatch/dist/flatly/bootstrap.css at v5 · thomaspark/bootswatch (github.com)](https://github.com/thomaspark/bootswatch/blob/v5/dist/flatly/bootstrap.css) - our css
+
+-   [Design Essentials \| Penn State Brand Book (psu.edu)](https://brand.psu.edu/design-toolkit/design-essentials)
+
+-   [Markdown Options \| AnyWayData - Data Table Editor & Generator](https://anywaydata.com/docs/data-formats/markdown/options/)
+
+-   [rmarkdown-cheatsheet (rstudio.com)](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+-   [Quarto -- VS Code](https://quarto.org/docs/tools/vscode.html)

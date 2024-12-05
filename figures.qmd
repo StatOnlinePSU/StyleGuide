@@ -1,0 +1,516 @@
+---
+categories: [Images, Alt-text, Figures, SVG, Position]
+image: /assets/images.svg
+file-modified:
+---
+
+# Figures & Images
+
+## Images
+
+Add all images to the 'assets' folder. The following code will render an image.
+
+``` md
+![caption of image](assets/name.png){#fig-label fig-alt="alt text" fig-align="center" width="70%" .lightbox}
+```
+
+For example...
+``` md
+![Population of trees](assets/randomtrees.png){#fig-randomtrees fig-alt="Population of 70 trees" fig-align="center" width="40%" .lightbox}
+```
+
+-   `#fig-randomtrees` provides a cross ref that will auto number the image.
+-   `fig-alt:` is the alt text for the image.
+-   align the image on the page using `fig-align`
+-   width can be set using `width=40%`.. use 70% for most images
+-   `.lightbox` allows the user to hover over the image and expand to full size
+
+![Population of trees](assets/randomtrees.png){#fig-randomtrees .lightbox fig-alt="Population of 70 trees" fig-align="center" width="40%"}
+
+
+### Alt text {.unnumbered .unlisted}
+
+All visual informational components require alt text. This includes markdown and HTML images as well as figures generated via R and SAS code.
+
+Alt text cannot be longer than 150 characters (counting spaces and punctuation), but it should rarely fill this space completely. **The user should only need to take five to ten seconds to process the alt text in its entirety.**
+
+Be brief and stick to significant identifying facts. You want approximately the level of detail you'd get by quickly glancing over the image.
+
+* Markdown figures: `fig-alt="Your alt text here."`
+* HTML images: `<img alt="Your alt text here.">`
+* R code: under construction
+* SAS: under construction
+
+Examples under construction.
+
+## Positioning images
+### Wrapping text around images
+To have an image 'float' use the bootstrap class `.img-fluid` and `.float-end`.
+
+````md
+![ ](assets/Rlogo.png){#fig-rlogo  fig-alt="R logo" width="60%" .img-fluid .float-end .lightbox}
+````
+
+creates...
+\
+![ ](assets/Rlogo.png){#fig-rlogo  fig-alt="R logo" width="10%" .img-fluid .float-end .lightbox}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+### Asides
+For decorative images (especially with examples) we can use the Quarto `.aside` class. This will put the image in the right margin of the page.
+
+````md
+:::{.aside}
+![Population of trees](assets/randomtrees.png){#fig-randomtrees .lightbox fig-alt="Population of 70 trees" fig-align="center" width="100%"}
+:::
+````
+
+Creates (look in the right margin)...
+
+:::{.aside}
+![Population of trees](assets/randomtrees.png){#fig-randomtrees .lightbox fig-alt="Population of 70 trees" fig-align="center" width="70%"}
+:::
+
+### Bootswatch classes
+
+To position images we can use the bootswatch classes... [Bootswatch - Flex Classes](https://getbootstrap.com/docs/4.0/utilities/flex/)
+
+-   `.d-flex`
+-   `.d-inline`
+-   `.d-block`
+-   `.d-inline-flex`
+-   `.d-flex-wrap`
+
+![Population of trees](assets/randomtrees.png){#fig-randomtrees .lightbox .float-sm-end .w-50 .ps-3 fig-alt="Population of 70 trees"}
+
+::: {.mx-5 .text-end .text-wrap .text-warning-emphasis}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ![Population of trees](assets/randomtrees.png){#fig-randomtrees .lightbox .w-50 .justify-content-sm-end fig-alt="Population of 70 trees"}
+:::
+
+## SVG Code
+
+SVG code from our current notes will render in Quarto inside an `html` code block. However, adjust the figure classes to be... `<figure class="w-50 mx-auto d-block">`
+
+Additionally, SVGs should have `role="img"` added after `<svg`. A `<title>` element should also be added after the xmlns element; this will function as alt text.
+
+::: {#exm-svg}
+::: {#fig-test .w-50 .mx-auto .d-block}
+```{=html}
+<svg role="img" data-name="Layer 1" id="b448bd1c-8a3c-425e-bd93-f7d565d56e44"
+        viewbox="0 0 610.08 409.79" xmlns="http://www.w3.org/2000/svg"><title>Two bell curves</title>
+        <defs>
+            <style type="text/css">
+                /*<![CDATA[*/
+                .e833da8f-8a6c-4d4c-99f7-12c02bba7710,
+                .f2250128-626d-4ccf-8c56-55066ea39e94 {
+                    fill: none;
+                    stroke-linecap: square;
+                    stroke-linejoin: round;
+                    stroke-width: 3px;
+                    stroke: #000
+                }
+
+                .f2250128-626d-4ccf-8c56-55066ea39e94 {
+                    stroke-dasharray: 11.52 11.52
+                }
+
+                .b861edd3-90e1-4b70-a1fc-5f0612c319d4,
+                .befd8153-d0ea-4d50-a958-19ee9284debf {
+                    font-size: 23.81px;
+                    font-family: TimesNewRomanPS-ItalicMT, Times New Roman;
+                    font-style: italic
+                }
+
+                .befd8153-d0ea-4d50-a958-19ee9284debf {
+                    letter-spacing: 0
+                }
+
+                .b2ec8fa7-1743-46de-91e5-09e850c425e7 {
+                    font-size: 25px;
+                    font-family: TimesNewRomanPSMT, Times New Roman
+                }
+
+                /*]]>*/
+            </style>
+        </defs>
+        <path
+            d="M1.53 353.01c30.42.52 81.5-.5 121.5-67.5 14.65-24.54 21.78-43.57 33-66 12.36-24.7 45.59-120.53 78-121.59 29.47-1 57.53 79.73 73.5 113.09 9.93 20.74 32.45 82.53 73 118 26.23 21 59.34 25.08 86 24"
+            fill="none" stroke="#00f" stroke-linecap="square" stroke-linejoin="round" stroke-width="3"></path>
+        <path
+            d="M143.53 353.01c30.42.52 81.5-.5 121.5-67.5 14.65-24.54 21.78-43.57 33-66 12.36-24.7 45.59-120.53 78-121.59 29.47-1 57.53 79.73 73.5 113.09 9.93 20.74 32.45 82.53 73 118 26.23 21 59.34 25.08 86 24"
+            fill="none" stroke="#c1272d" stroke-linecap="square" stroke-linejoin="round" stroke-width="3"></path>
+        <path class="e833da8f-8a6c-4d4c-99f7-12c02bba7710" d="M233.53 64.51v6"></path>
+        <path class="f2250128-626d-4ccf-8c56-55066ea39e94" d="M233.53 82.03v270.72"></path>
+        <path class="e833da8f-8a6c-4d4c-99f7-12c02bba7710" d="M233.53 358.51v6M376.53 64.51v6"> </path>
+        <path class="f2250128-626d-4ccf-8c56-55066ea39e94" d="M376.53 82.03v270.72"></path>
+        <path class="e833da8f-8a6c-4d4c-99f7-12c02bba7710" d="M376.53 358.51v6"></path>
+        <path d="M240.7 64.51h128.65" fill="none" stroke="#000" stroke-linecap="square" stroke-linejoin="round"
+            stroke-width="2"></path>
+        <path d="M242.16 69.5l-8.63-4.99 8.63-4.99v9.98zM367.89 69.5l8.63-4.99-8.63-4.99v9.98z"> </path><text
+            class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(1.02 0 0 1 302.41 19.78)"> B </text><text
+            class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(.6 0 0 .58 317.29 27.71)"> i </text><text
+            class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(1.02 0 0 1 324.39 19.78)"> =E(ŷ </text><text
+            class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(.6 0 0 .58 374.64 27.71)"> i </text><text
+            class="befd8153-d0ea-4d50-a958-19ee9284debf" transform="matrix(1.02 0 0 1 385.3 19.78)"> ) - E(y
+        </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(.6 0 0 .58 447.52 27.71)"> i
+        </text><text class="befd8153-d0ea-4d50-a958-19ee9284debf" transform="matrix(1.02 0 0 1 455.01 19.78)"> ) </text>
+        <path d="M334.03 29.01L318.45 57.7" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2"> </path>
+        <path d="M314.76 54.04l.26 9.97 8.51-5.21-8.77-4.76z"> </path><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(1.02 0 0 1 217.45 394.56)"> E(ŷ </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(.6 0 0 .58 251.26 402.49)"> i </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(1.02 0 0 1 258.36 394.56)"> ) </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(1.02 0 0 1 359.66 394.34)"> E(y </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(.6 0 0 .58 393.47 402.27)"> i </text><text class="befd8153-d0ea-4d50-a958-19ee9284debf"
+            transform="matrix(1.02 0 0 1 397.41 394.34)"> ) </text><text class="b2ec8fa7-1743-46de-91e5-09e850c425e7"
+            transform="translate(479.03 180.86)"> No Bias </text><text class="b2ec8fa7-1743-46de-91e5-09e850c425e7"
+            transform="translate(66.03 180.86)"> Bias </text>
+    </svg>
+```
+:::
+
+
+
+
+
+Is created from...
+
+````md
+::: {#fig-test .w-50 .mx-auto .d-block}
+```{{=html}}
+<svg role="img" data-name="Layer 1" id="b448bd1c-8a3c-425e-bd93-f7d565d56e44"
+        viewbox="0 0 610.08 409.79" xmlns="http://www.w3.org/2000/svg"><title>Two bell curves</title>
+        <defs>
+            <style type="text/css">
+                /*<![CDATA[*/
+                .e833da8f-8a6c-4d4c-99f7-12c02bba7710,
+                .f2250128-626d-4ccf-8c56-55066ea39e94 {
+                    fill: none;
+                    stroke-linecap: square;
+                    stroke-linejoin: round;
+                    stroke-width: 3px;
+                    stroke: #000
+                }
+
+                .f2250128-626d-4ccf-8c56-55066ea39e94 {
+                    stroke-dasharray: 11.52 11.52
+                }
+
+                .b861edd3-90e1-4b70-a1fc-5f0612c319d4,
+                .befd8153-d0ea-4d50-a958-19ee9284debf {
+                    font-size: 23.81px;
+                    font-family: TimesNewRomanPS-ItalicMT, Times New Roman;
+                    font-style: italic
+                }
+
+                .befd8153-d0ea-4d50-a958-19ee9284debf {
+                    letter-spacing: 0
+                }
+
+                .b2ec8fa7-1743-46de-91e5-09e850c425e7 {
+                    font-size: 25px;
+                    font-family: TimesNewRomanPSMT, Times New Roman
+                }
+
+                /*]]>*/
+            </style>
+        </defs>
+        <path
+            d="M1.53 353.01c30.42.52 81.5-.5 121.5-67.5 14.65-24.54 21.78-43.57 33-66 12.36-24.7 45.59-120.53 78-121.59 29.47-1 57.53 79.73 73.5 113.09 9.93 20.74 32.45 82.53 73 118 26.23 21 59.34 25.08 86 24"
+            fill="none" stroke="#00f" stroke-linecap="square" stroke-linejoin="round" stroke-width="3"></path>
+        <path
+            d="M143.53 353.01c30.42.52 81.5-.5 121.5-67.5 14.65-24.54 21.78-43.57 33-66 12.36-24.7 45.59-120.53 78-121.59 29.47-1 57.53 79.73 73.5 113.09 9.93 20.74 32.45 82.53 73 118 26.23 21 59.34 25.08 86 24"
+            fill="none" stroke="#c1272d" stroke-linecap="square" stroke-linejoin="round" stroke-width="3"></path>
+        <path class="e833da8f-8a6c-4d4c-99f7-12c02bba7710" d="M233.53 64.51v6"></path>
+        <path class="f2250128-626d-4ccf-8c56-55066ea39e94" d="M233.53 82.03v270.72"></path>
+        <path class="e833da8f-8a6c-4d4c-99f7-12c02bba7710" d="M233.53 358.51v6M376.53 64.51v6"> </path>
+        <path class="f2250128-626d-4ccf-8c56-55066ea39e94" d="M376.53 82.03v270.72"></path>
+        <path class="e833da8f-8a6c-4d4c-99f7-12c02bba7710" d="M376.53 358.51v6"></path>
+        <path d="M240.7 64.51h128.65" fill="none" stroke="#000" stroke-linecap="square" stroke-linejoin="round"
+            stroke-width="2"></path>
+        <path d="M242.16 69.5l-8.63-4.99 8.63-4.99v9.98zM367.89 69.5l8.63-4.99-8.63-4.99v9.98z"> </path><text
+            class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(1.02 0 0 1 302.41 19.78)"> B </text><text
+            class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(.6 0 0 .58 317.29 27.71)"> i </text><text
+            class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(1.02 0 0 1 324.39 19.78)"> =E(ŷ </text><text
+            class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(.6 0 0 .58 374.64 27.71)"> i </text><text
+            class="befd8153-d0ea-4d50-a958-19ee9284debf" transform="matrix(1.02 0 0 1 385.3 19.78)"> ) - E(y
+        </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4" transform="matrix(.6 0 0 .58 447.52 27.71)"> i
+        </text><text class="befd8153-d0ea-4d50-a958-19ee9284debf" transform="matrix(1.02 0 0 1 455.01 19.78)"> ) </text>
+        <path d="M334.03 29.01L318.45 57.7" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2"> </path>
+        <path d="M314.76 54.04l.26 9.97 8.51-5.21-8.77-4.76z"> </path><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(1.02 0 0 1 217.45 394.56)"> E(ŷ </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(.6 0 0 .58 251.26 402.49)"> i </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(1.02 0 0 1 258.36 394.56)"> ) </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(1.02 0 0 1 359.66 394.34)"> E(y </text><text class="b861edd3-90e1-4b70-a1fc-5f0612c319d4"
+            transform="matrix(.6 0 0 .58 393.47 402.27)"> i </text><text class="befd8153-d0ea-4d50-a958-19ee9284debf"
+            transform="matrix(1.02 0 0 1 397.41 394.34)"> ) </text><text class="b2ec8fa7-1743-46de-91e5-09e850c425e7"
+            transform="translate(479.03 180.86)"> No Bias </text><text class="b2ec8fa7-1743-46de-91e5-09e850c425e7"
+            transform="translate(66.03 180.86)"> Bias </text>
+    </svg>
+```
+:::
+````
+:::
+
+
+## Icons
+
+We can use bootstrap icons in Quarto.
+
+[Get Bootstrap Icons](https://icons.getbootstrap.com/)
+
+Use the html code...
+
+``` md
+<i class="bi bi-airplane-fill"></i>
+```
+
+to create...<i class="bi bi-airplane-fill"></i>
+
+### Icon Color
+To add color to icons use the bootstrap or styles html...
+
+* `fs-#` to change the size: `-1`, `-2`, `-3`, `-4`
+* Uses standard bootstrap colors: `-success`, `-warning`, `-danger`, `-info`, `-dark`, `-light`
+* Use `opacity-` `100`, `75`, `50`, or `25`
+
+``` md
+<i class="bi bi-question-circle-fill fs-4 text-success"> </i> Are there an unusual number of adverse health outcomes in this community?
+```
+
+to create...
+
+<i class="bi bi-question-circle-fill fs-4 text-success" > </i> Are there an unusual number of adverse health outcomes in this community?
+
+Or..using bootstrap class in Markdown...
+
+``` md
+[]{.bi .bi-question-circle-fill .fs-4 .text-success} Are there an unusual number of adverse health outcomes in this community?
+```
+creates...
+
+[]{.bi .bi-question-circle-fill .fs-4 .text-success} Are there an unusual number of adverse health outcomes in this community?
+
+If you include the text within the `<i>` tags you will get...
+
+<i class="bi bi-question-circle-fill fs-4 text-success"> Are there an unusual number of adverse health outcomes in this community?</i> 
+
+
+
+#### Opacity
+* `opacity-75` - <i class="bi bi-question-circle-fill fs-4 text-success opacity-75"> </i>
+* `opacity-50` - <i class="bi bi-question-circle-fill fs-4 text-success opacity-50"> </i>
+* `opacity-25` - <i class="bi bi-question-circle-fill fs-4 text-success opacity-25"> </i>
+
+#### Sizing
+* `fs-1`
+<i class="bi bi-question-circle-fill fs-1 text-success"> </i> Are there an unusual number of adverse health outcomes in this community?
+
+* `fs-2`
+<i class="bi bi-question-circle-fill fs-2 text-success"> </i> Are there an unusual number of adverse health outcomes in this community?
+
+* `fs-3`
+<i class="bi bi-question-circle-fill fs-3 text-success"> </i> Are there an unusual number of adverse health outcomes in this community?
+
+### Custom Icons
+
+A custom icon can be created from an image located in the assets folder and some scss.
+
+To create an R logo icon you can include this in the scss files.
+
+``` md
+/* Icon styles */
+.ricon {
+    width: 50px; /* Set the width */
+    height: 50px; /* Set the height */
+    background-image: url('assets/Rlogo.png'); /* Set the image path */
+    background-size: contain; /* Ensures the image covers the entire element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 10px;
+  
+}
+```
+
+The icon can then be place in the content as a fenced div.
+
+``` md
+::: {.ricon .float-end .d-flex}
+:::
+Some text here
+```
+
+Creates... 
+
+::: {.ricon .float-end .d-flex} 
+::: 
+
+Some text here
+
+## Figures from code output
+
+Many of the figures and graphs are created using R code.
+
+The front matter of the code block should include...
+
+````markdown
+```{{r message=FALSE, out.width="70%"}}
+#| label: fig-matrixplotvent
+#| fig-alt: Matrix plot of Weight (Wgt) as the response, Smoking (Smoke) and Gestation (Gest) as the predictors
+#| fig-cap: Matrix Plot of Wgt, Gest, Smoke
+#| eval: true
+#| echo: FALSE
+
+<actual R code for the figure>
+```
+````
+
+```{r, message=FALSE, warning=FALSE, error=FALSE, out.width="70%"}
+#| label: fig-scattergestvswtg
+#| fig-alt: Scatterplot of Wgt (explanatory) vs Gest (response) grouped by smoking status. 
+#| fig-cap: Scatterplot of Wgt vs Gest by Smoker Status
+#| eval: true
+#| echo: false
+#| lightbox: true
+
+smoker <- read.table("Data_files/birthsmokers.txt", header = TRUE)
+attach(smoker)
+
+model.13 <- lm(Wgt ~ Gest + Smoke)
+
+plot(Gest, Wgt, type="n", las=1)
+for (i in 1:32) points(Gest[i], Wgt[i], pch=Smoke[i], col=Smoke[i])
+for (i in c(0, 1)) {
+  points(Gest[Smoke == i], Wgt[Smoke == i], pch = i + 1, col = ifelse(i == 0, "blue", "red"))
+  lines(Gest[Smoke == i], fitted(model.13)[Smoke == i],
+        lty = ifelse(i == 0, "solid", "solid"), col = ifelse(i == 0, "blue", "red"))
+}
+
+# Legend for Smoke levels
+legend("topleft", legend = c("Smoke = 0", "Smoke = 1"),
+       col = c("blue", "red"), pch = c(1, 2), inset = 0.02)
+
+detach(smoker)
+```
+
+Is created from...
+
+````markdown
+```{{r message=FALSE, warning=FALSE, error=FALSE, out.width="70%"}}
+#| label: fig-scattergestvswtg
+#| fig-alt: Scatterplot of Wgt (explanatory) vs Gest (response) grouped by smoking status. 
+#| fig-cap: Scatterplot of Wgt vs Gest by Smoker Status
+#| eval: true
+#| echo: false
+#| lightbox: true
+
+
+smoker <- read.table("Data_files/birthsmokers.txt", header = TRUE)
+attach(smoker)
+
+model.13 <- lm(Wgt ~ Gest + Smoke)
+
+plot(Gest, Wgt, type="n", las=1)
+for (i in 1:32) points(Gest[i], Wgt[i], pch=Smoke[i], col=Smoke[i])
+for (i in c(0, 1)) {
+  points(Gest[Smoke == i], Wgt[Smoke == i], pch = i + 1, col = ifelse(i == 0, "blue", "red"))
+  lines(Gest[Smoke == i], fitted(model.13)[Smoke == i],
+        lty = ifelse(i == 0, "solid", "solid"), col = ifelse(i == 0, "blue", "red"))
+}
+
+# Legend for Smoke levels
+legend("topleft", legend = c("Smoke = 0", "Smoke = 1"),
+       col = c("blue", "red"), pch = c(1, 2), inset = 0.02)
+
+detach(smoker)
+
+```
+````
+
+## Flow Charts
+We can use [Mermaid](https://quarto.org/docs/authoring/diagrams.html) to create code based flow charts.
+
+First you must include these packages and libraries in R.
+
+```{r, message=FALSE, warning=FALSE, error=FALSE, echo=TRUE}
+
+library(bslib)
+library(shiny)
+library(bsicons)
+library(htmltools)
+
+```
+
+
+This code...
+
+````md
+```{mermaid}
+%%{ init: { 'flowchart': { 'curve': 'stepBefore' } } }%%
+flowchart LR
+    A{"`One value or the difference between two values?`"} -->|One value| B{"`A quantitative or categorical variable?`"}
+    A -->|Difference between <br> two values| C{"`Two quantitative or categorical variables?`"}
+
+    B -->|Quantitative| D("`One Mean Confidence Interval`")
+    B -->|Categorical| E("`One Proportion Confidence Interval`")
+
+    C -->|Quantitative| F{"`Independent or paired samples?`"}
+    C -->|Categorical| G("`Two Proportions Confidence Interval`")
+
+    F -->|Paired| H("`Two Paired Means Confidence Interval`")
+    F -->|Independent| I("`Two Independent Means Confidence Interval`"):::big
+
+
+    classDef decision fill:#f9e79f,stroke:none,stroke-width:2px,rx:20,ry:20,color:#fffff,font-weight:bold, font-size:1.2rem;
+    
+    classDef result fill:#ffffff,stroke:#ffffff,stroke-width:2px,rx:10,ry:10,font-size:1.2rem,width:300px;
+
+    classDef compact fill:#f9e79f,stroke:none, font-weight:bold, font-size:1.2rem
+    class A,B,C,F decision
+    class D,E,G,H,I result
+
+    
+    %% Apply styling to connector text
+    linkStyle 0 1 stroke-width:5px,font-size:18px
+    
+    classDef padded fill:#ffffff,stroke:none,rx:10,ry:10,padding-bottom:5px;
+    class I padded;
+```
+````
+
+will create...
+
+:::{#fig-flowchart}
+```{mermaid}
+%%{ init: { 'flowchart': { 'curve': 'stepBefore' } } }%%
+flowchart LR
+    A{"`One value or the difference between two values?`"} -->|One value| B{"`A quantitative or categorical variable?`"}
+    A -->|Difference between <br> two values| C{"`Two quantitative or categorical variables?`"}
+
+    B -->|Quantitative| D("`One Mean Confidence Interval`")
+    B -->|Categorical| E("`One Proportion Confidence Interval`")
+
+    C -->|Quantitative| F{"`Independent or paired samples?`"}
+    C -->|Categorical| G("`Two Proportions Confidence Interval`")
+
+    F -->|Paired| H("`Two Paired Means Confidence Interval`")
+    F -->|Independent| I("`Two Independent Means Confidence Interval`"):::big
+
+
+    classDef decision fill:#f9e79f,stroke:none,stroke-width:2px,rx:20,ry:20,color:#fffff,font-weight:bold, font-size:1.2rem;
+    
+    classDef result fill:#ffffff,stroke:#ffffff,stroke-width:2px,rx:10,ry:10,font-size:1.2rem,width:300px;
+
+    classDef compact fill:#f9e79f,stroke:none, font-weight:bold, font-size:1.2rem
+    class A,B,C,F decision
+    class D,E,G,H,I result
+
+    
+    %% Apply styling to connector text
+    linkStyle 0 1 stroke-width:5px,font-size:18px
+    
+    classDef padded fill:#ffffff,stroke:none,rx:10,ry:10,padding-bottom:5px;
+    class I padded;
+```
+:::

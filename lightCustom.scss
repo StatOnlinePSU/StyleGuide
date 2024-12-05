@@ -1,0 +1,630 @@
+/*-- scss:defaults --*/
+
+@import "_sasStyles.scss";
+
+$font-family-sans-serif:  Arial, Verdana, Tahoma, sans-serif;
+
+/*add background to title on banner on home page*/
+.quarto-title-banner > .quarto-title .title {
+    margin-bottom: 3rem !important; 
+    margin-top: 3rem !important;
+    background-color: #F9EDDCBB  !important;
+    padding: 1rem !important;
+    color: black !important;
+    border-radius: 20px !important;
+}
+
+
+.feedback {
+  display: none !important; /* Hide feedback by default */
+  margin-top: 10px;
+}
+
+.quarto-title-banner * {
+  color: white !important;
+}
+
+.quarto-title-banner {
+  margin-bottom: -17px !important;
+}
+
+.title-block-banner {
+  margin-bottom: -17px !important;
+}
+
+img.sidebar-logo {
+  content:url(PSU_Ecosshield.png) !important;
+}
+
+$link-color:    rgb(13, 110, 253); /*defines link colors */
+
+
+
+/*-----------------------------HEADERS---------------------------------------------- */
+
+h2, .h2 {
+    margin-bottom: 1rem !important;
+    margin-top: 3rem !important;
+    border-top-style: none;
+    border-bottom-color: #B88965 !important;  /* Lion Shrine*/
+}
+
+hr, .hr {
+  display: none !important;
+}
+
+h2:not(.minitab_output *), .h2:not(.minitab_output *) {
+    margin-top: 3rem !important;
+}
+
+h3:not(.minitab_output *), .h3:not(.minitab_output *) {
+    margin-top: 3rem !important;
+}
+
+h4:not(.minitab_output *), .h4:not(.minitab_output *) {
+    margin-top: 1rem !important; /*changed this to 1 so that is doesn't create a big margin in solution blocks in examples*/
+}
+
+.nomargin {
+  margin-top: -1.5em;
+}
+
+#quarto-header  {
+    color: white ;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #001e44 !important;
+}
+
+/*change the auto numbers in front of the headers*/
+h2 > .header-section-number, h3 > .header-section-number {
+  color: #001e44 !important;
+}
+
+/*---------------------------------Header Number - Formats------------------------------*/
+
+/*Put the word 'lesson' before the auto chapter number on the lesson page*/
+h1.title >.chapter-number:before {
+   content: "Lesson ";
+}
+
+/*add colon after auto chapter numbering*/
+.chapter-number:after {
+   content: ":";
+}
+
+/*add colon after auto subchapter numbering in the TOC and in the body*/
+.header-section-number:after {
+  content: ":";
+
+}
+
+/*style the part names in the left nav (lessons, resources, etc..)*/
+.text-start > .menu-text {
+  font-weight: bold !important;
+
+}
+
+/*-----------------------------------LEFT NAV BAR------------------------------------*/
+
+/*left nav bar background*/
+div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sidebar.sidebar-navigation:not(.rollup) {
+  background-color: #E4E5E7  !important;  /*PA Limestone Light*/
+    .active > * > * {
+  color:  #314D64 !important;
+  font-weight: bolder !important;
+  }
+}
+
+
+
+a:hover > * > * {
+  color: #0d6efd !important;
+}
+
+/*-----------------------------------TOC------------------------------------*/
+
+#TOC * > a.nav-link:hover *:not(i) {
+  color: #0d6efd !important;
+}
+
+.sidebar nav[role="doc-toc"] ul > li > a {
+  color: #314D64  !important;  /*color of lesson titles in TOC - PA Slate*/
+}
+
+.sidebar nav[role="doc-toc"] ul > li > a.active {
+  color: #0d6efd !important;
+  font-weight: 800 !important;
+}
+
+/*-----------------------------LISTS---------------------------------------------- */
+
+ul li {
+    margin-bottom: 0.4rem !important; /* spacing after each bullet in a list- adjust the margin as needed */
+}
+
+ol li {
+    margin-bottom: 0.4rem !important; /* spacing after each bullet in a list- adjust the margin as needed */
+}
+
+/*------------------------------TABLES---------------------------------------*/
+.small {
+  font-size: 1em !important;  /*makes markdown tables have regular size text*/
+}
+
+.table-container {
+  max-width: 100%; /* Set a maximum width for the container */
+  overflow-x: auto; /* Enable horizontal scrolling when the content overflows */
+}
+
+
+ /*table-sm row height adjust*/
+$table-cell-padding-y-sm:     .05rem;
+$table-cell-padding-x-sm:     .45rem;
+
+/*general tables*/
+tbody, tfoot, tr, td:not(.cell-output-display), th  {
+      border-bottom: none !important;
+      text-align: right;
+}
+
+/*---------------------------CALLOUTS ----------------------------------------------*/
+
+$callout-color-note: #f4f8fc !default; /* defines the light blue callout color */
+
+/*Callout margin left*/
+
+.callout {
+  margin-left: 1em;
+  font-size: inherit;
+}
+
+.callout-body {
+   padding-left: 1em !important;
+}
+
+/*use for formulas */
+.callout-note {
+  background-color: #FDFBF5;  /*lion shrine max light*/
+  border-left-width: 3px;
+  border-left-color: #B88965 !important; /*lion shrine*/
+
+}
+
+.callout.callout-style-simple .callout-body {
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+
+}
+
+/*callout title sizes*/
+.callout.callout-style-simple>div.callout-header {
+    border-bottom: none;
+    font-size: 1rem !important;
+    font-weight: 600;
+    opacity: 100%;
+}
+
+.callout.callout-style-simple {
+    padding: .4em .7em;
+    border-left: 5px solid;
+    border-right: .5px solid #fd7e14 !important;
+    border-top: .5px solid #fd7e14 !important;
+    border-bottom: .5px solid #fd7e14 !important;
+}
+
+/*---------------------------TRY IT BLOCKS ----------------------------------------------*/
+
+/*TRY IT STYLES try it block -after title*/
+.tryit {
+  margin-top: -1em;
+  padding-top: 1em;
+  margin-left: .65rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-left-style: solid;
+  border-left-color: #e4a11b;
+  border-width: thin;
+}
+
+/*------------------------------DEFINITIONS---------------------------------------------*/
+
+.theorem.definition {
+  margin-left: 1em !important;
+  border-left: solid 1px !important;
+  border-left-color: #314D64 !important; //PA Sky
+  padding-left: 1em;
+
+  .theorem-title {
+   color: #314D64  ; //PA Slate
+   font-size: 19px;
+   }
+  .theorem-title:after {
+   content: "\a";
+   white-space: pre;  /*adds a new line after the title*/
+  }
+}
+
+
+/*---------------------------------EXAMPLES----------------------------------------------*/
+
+
+
+/*Color and icon of example titles*/
+.theorem.example {
+  border-left: 1.3px solid !important;
+  border-left-color: #3EA39E  !important; /*PA Creek*/
+  margin-left: .65rem;
+  margin-top: 2.5em;
+  padding-left: 1rem;
+
+  .theorem-title {
+    color: #2B5A4C;/*used this dark creen to pass wcag contrast standards*/
+    font-size: 22px;
+
+  }
+  .theorem-title:after {
+  content: "\a";
+  white-space: pre;  /*adds a new line after the title*/
+  }
+  .theorem-title:before {
+    content: "\F17A";
+    justify-content: flex-end;
+    padding-right: .4em;
+    font-family: "bootstrap-icons";
+  }
+}
+
+/* -----------------------------MINITAB BLOCK STYLES-------------------------------- */
+
+.minitab_output {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-left-style: dashed;
+  border-left-color: #dae0e0;
+
+  h3,h4 {
+    color: #056eb2 !important;   /*color from the current Minitab web app*/
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    margin-top: 4px !important;
+  }
+
+  tbody, tfoot, tr, td  {
+      border-bottom: none !important;
+      text-align: right !important;
+      padding: .75px 7.65px !important;
+  }
+
+  .table th:first-child, .table td:first-child {
+    text-align: left !important;
+  }
+
+  .table th.special-th {
+  text-align: right !important;
+  }
+
+  thead, th, .header {
+    border-bottom: 1.3px solid black !important;
+    text-align: right !important;
+    border-top: none !important;
+  }
+
+  table  {
+    caption-side: bottom !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    margin-bottom: 20px !important;
+    table-layout: auto !important;
+    width: auto !important;
+  }
+
+  table colgroup {
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+
+}
+
+/* ------------------------OVERRIDES FOR ALERTS-------------------------------- */
+
+.alert {
+  border: none;
+  color: black
+}
+
+.alert a,.alert .alert-link {
+  color: rgb(13, 110, 253);
+  text-decoration: underline
+}
+
+.alert-default {
+  background-color: #6c757d
+}
+
+.alert-primary {
+  background-color: #2c3e50
+}
+
+.alert-secondary {
+  background-color: #6c757d
+}
+
+.alert-success {
+  background-color: #18bc9c
+}
+
+.alert-info {
+  background-color: #3498db
+}
+
+.alert-warning {
+  color: #3b444f !important;
+  background-color: #fff6cc !important;
+  border-color: #fff1b3 !important;
+}
+
+.alert-danger {
+  background-color: #e74c3c
+}
+
+.alert-light {
+  background-color: #ecf0f1 !important;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: .5em;
+  padding-bottom: .2em;
+  border-radius: .75em;
+}
+
+.alert-dark {
+  background-color: #7b8a8b
+}
+
+/*---------------------------------Lesson objectives block--------------------------------*/
+
+.objectiveblock {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  position: relative;
+
+  i {
+    color: #2779B0; /* Customize the icon color */
+    font-size: 24px; /* Adjust the icon size */
+    margin-right: 10px; /* Add spacing between the icon and the text */
+  }
+
+  .callout-header {
+    margin-top: 0; /* Remove default margin for the header */
+    font-size: 24px; /* Adjust the header font size */
+    font-weight: bold; /* Optionally make the header bold */
+    color: #001e44;
+  }
+}
+
+/*--------------------------------R and CODE OUTPUT------------------------------*/
+
+/*adjust the space at the top of R output figures*/
+.quarto-figure>figure {
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 0rem !important;
+}
+
+/*------------------------------------VIDEO---------------------------------------*/
+
+/*adjust size of video titles */
+.quarto-float-vid >*  {
+    font-size: 1.2rem;
+    color: #5a6570;
+}
+
+/*------------------------------------Code Blocks---------------------------------------*/
+
+div.sourceCode {
+    margin: 1em 0;
+    margin-left: .5em !important;
+    margin-right: .5em !important;
+    font-size: .95em !important;
+    background-color: #F2F2F4 !important;  //PA Limestone Max Light
+}
+
+/*-------------------------- Accordions------------------*/
+
+.accordion {
+    margin-left: 10px !important;
+    --bs-accordion-btn-bg: #ffffff !important;
+    --bs-accordion-btn-icon-width: 1.5rem !important;
+    --bs-accordion-body-padding-x: 1.5rem !important;
+    --bs-accordion-body-padding-y: 1.5rem !important;
+    --bs-accordion-active-color: #121920;
+    --bs-accordion-active-bg: #EEF3F7  !important; //PA slate max light
+    --bs-accordion-btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='blue' class='bi bi-plus-lg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2'/%3E%3C/svg%3E") !important;
+    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='blue' class='bi bi-dash-lg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8'/%3E%3C/svg%3E") !important;
+}
+
+.accordion .accordion-item .accordion-button .accordion-header.anchored {
+    margin-top: 0rem !important;
+    font-size: calc(1rem + .28vw) !important;
+    color: rgb(13, 110, 253) !important;
+}
+
+.accordion-button {
+    font-size: 1.1rem !important;
+    padding-bottom: 1rem !important;
+    padding-top: 1rem !important;
+}
+
+
+
+// change the text on expansion
+button.btn.collapsed:not(.quarto-btn-toggle):not(button.quarto-search-button):not(.code-tools-button)::before {
+  content: 'Show'!important; /* Text when collapsed */
+}
+
+button.btn:not(.collapsed):not(.quarto-btn-toggle):not(button.quarto-search-button):not(.code-tools-button)::before {
+  content: 'Hide' !important; /* Text when expanded */
+}
+
+// Make the bg color change on mouse over
+.accordion-button:hover {
+  background-color: #EEF3F7; /* change to your desired color */
+  font-weight: 550;
+  text-decoration: underline;
+  color: #0047AB !important;
+}
+
+/*---------------------------TABS-------------------------*/
+.panel-tabset > .nav-tabs {
+    --bs-nav-tabs-border-width: 1px;
+    --bs-nav-tabs-border-color: #ecf0f1;
+    --bs-nav-tabs-link-hover-border-color: #0a58ca #0a58ca #0a58ca !important;
+    --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #fff !important; /*make top of active tab green*/
+    --bs-nav-tabs-link-disabled-color: #dee2e6 !important;
+
+}
+
+.panel-tabset > .nav {
+    --bs-nav-link-padding-x: .5rem !important;
+    --bs-nav-link-padding-y: 0.5rem !important;
+    --bs-nav-link-color: rgb(13, 110, 253);
+    --bs-nav-link-hover-color: #0a58ca;
+}
+
+.panel-tabset > .nav li:hover {
+    font-weight: bold; /* Make it bold on hover */
+    background-color: #E5E4E2;/* ... color background on hover ... */
+
+}
+
+.panel-tabset > .nav-tabs .nav-link:not(.active) {
+    border-color: #dee2e6 #dee2e6 #dee2e6 !important; /* gives border color to non active tabs*/
+    background-color: #F5F5F5;/*gives bg color to non-active tabs */
+}
+
+.panel-tabset > .nav-tabs > li > a {
+  border-radius: 12px 12px 0 0 !important; /*left and right rounded border of tabs */
+}
+
+.panel-tabset > .nav-tabs .nav-link.active {
+    font-weight: bold; /*the active tab has bold font*/
+    /*border-top-width: 4px; this would add a thicker bolder at the top of the active tab but then that messes with margin at bottom*/
+}
+
+/*remove bottom border of the tab */
+.nav-tabs {
+  border-bottom: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+
+
+div.panel-tabset >.tab-content {
+  padding-top: 1rem !important;
+  border-width: 1px !important;
+  border-top: 1px solid #dee2e6 !important; /*gives line out to the rest of the box */
+  border-left: #dee2e6 1px solid;
+  border-right: #dee2e6 1px solid;
+  border-bottom: #dee2e6 1px solid;
+}
+
+/*removes margin between tab and top of content body */
+div.panel-tabset > ul > li  {
+  margin-bottom: 0rem !important;
+}
+
+/*removes extra space above headers inside panel content */
+div.panel-tabset > .tab-content h3:not(.minitab_output *), .h3:not(.minitab_output *),
+div.panel-tabset > .tab-content h4 {
+  margin-top: 1rem !important;
+}
+
+
+
+/* -------------------------- Custom to this course -------------------------*/
+/* Icon styles */
+.ricon {
+    width: 50px; /* Set the width */
+    height: 50px; /* Set the height */
+    background-image: url('assets/Rlogo.png'); /* Set the image path */
+    background-size: contain; /* Ensures the image covers the entire element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 10px;
+
+}
+
+// Minitab icon
+.mticon {
+    width: 50px; /* Set the width */
+    height: 50px; /* Set the height */
+    background-image: url('assets/minitab.png'); /* Set the image path */
+    background-size: contain; /* Ensures the image covers the entire element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 10px;
+
+}
+
+.card-file-modified:before {
+  content: "Updated: ";
+
+}
+
+.card-footer {
+  background-color: #f4f8fc !important;
+}
+
+#title_targeting, #title_targeting:has(li) {
+  display: none;
+}
+
+
+/*CUSTOM CSS FOR DYNAMIC TOC */
+
+
+.sidebar-menu-container * #toc-title {
+  display: none;
+}
+
+/* Nested TOC styling in the sidebar */
+.sidebar-toc-nested {
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 2px solid #ddd;
+}
+
+.sidebar-toc-nested li {
+  margin-bottom: 5px;
+}
+
+.sidebar-toc-nested a {
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+}
+
+.sidebar-toc-nested a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* Default TOC styling for wide screens */
+#TOC {
+  display: block; /* Visible on wide screens */
+}
+
+@media (max-width: 767px) {
+  #TOC {
+      display: none; /* Hidden on small screens */
+  }
+}
+

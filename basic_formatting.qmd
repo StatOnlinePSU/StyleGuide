@@ -1,0 +1,332 @@
+---
+categories: [Text, Headers, Alignment, Borders, Lists]
+image: /assets/textarea-t.svg
+---
+
+# Basic Text Formatting
+
+## Basic text
+
++-----------------------------------------+-----------------------------------------+
+| Markdown Syntax                         | Output                                  |
++=========================================+=========================================+
+| ```                                     | *italics*, **bold**, ***bold italics*** |
+| *italics*, **bold**, ***bold italics*** |                                         |
+| ```                                     |                                         |
++-----------------------------------------+-----------------------------------------+
+| ```                                     | superscript^2^ / subscript~2~           |
+| superscript^2^ / subscript~2~           |                                         |
+| ```                                     |                                         |
++-----------------------------------------+-----------------------------------------+
+| ```                                     | ~~strikethrough~~                       |
+| ~~strikethrough~~                       |                                         |
+| ```                                     |                                         |
++-----------------------------------------+-----------------------------------------+
+| ```                                     | `verbatim code`                         |
+| `verbatim code`                         |                                         |
+| ```                                     |                                         |
++-----------------------------------------+-----------------------------------------+
+
+## Headings
+
+::: grid
+::: {.g-col-lg-4 .g-col-md-6 .g-col-sm-12}
+# Header 1 {.unnumbered .unlisted}
+
+`# Header 1`
+:::
+
+::: {.g-col-lg-4 .g-col-md-6 .g-col-sm-12}
+## **Header 2** {.unnumbered .unlisted}
+
+`## Header 2`
+:::
+
+::: {.g-col-lg-4 .g-col-md-6 .g-col-sm-12}
+### Header 3 {.unnumbered .unlisted}
+
+`### Header 3`
+:::
+:::
+
+::: grid
+::: {.g-col-lg-4 .g-col-md-6 .g-col-sm-12}
+#### Header 4
+
+`#### Header 4`
+:::
+
+::: {.g-col-lg-4 .g-col-md-6 .g-col-sm-12}
+##### Header 5
+
+`##### Header 5`
+:::
+:::
+
+### Heading auto numbering {.unnumbered .unlisted}
+
+-   To stop a header from auto numbering use `### Heading 3 {.unnumbered}`
+-   To stop a header from being listed in the TOC use `### Heading 3 {.unlisted}`
+-   For both use `### Heading 3 {.unnumbered .unlisted}`
+
+## Text Size
+There are times when we want text to be more prominant than bold but not a header.
+You can increase text size by using the bootstrap classes `fs-1 - fs-6`.
+
+``` md
+[Text using fs-#]{.fs-#}
+```
+
+[Text using fs-1]{.fs-1}\
+[Text using fs-2]{.fs-2}\
+[Text using fs-3]{.fs-3}\
+[Text using fs-4]{.fs-4}\
+[Text using fs-5]{.fs-5}\
+[Text using fs-6 (normal size)]{.fs-6} \
+
+
+### Lead {.unnumbered  .unlisted}
+The lead class gives a slightly larger font size and lighter weight to make it stand out as introductory or prominent text. This is often used for the leading paragraph in a section to draw more attention.
+
+``` md
+[This is using lead text]{.lead}
+```
+[This is using lead text]{.lead}
+
+
+## Text Color
+
+You can use the [bootstrap classes](https://github.com/thomaspark/bootswatch/blob/v5/dist/flatly/bootstrap.css) to color text.
+
+::: {.callout-caution appearance="minimal"}
+**Note!** Not all colors meet accessibility guidelines for text.
+:::
+
+You can use the following Bootstrap classes...
+
+::: grid
+::: {.g-col-lg-6 .g-col-md-6 .g-col-sm-12}
+-   [.text-primary]{.text-primary}
+-   [.text-secondary]{.text-secondary}
+-   [.text-success]{.text-success}
+-   [.text-info]{.text-info}
+-   [.text-warning]{.text-warning}
+-   [.text-danger]{.text-danger}
+-   [.text-light]{.text-light}
+-   [.text-dark]{.text-dark}
+:::
+
+::: {.g-col-lg-6 .g-col-md-6 .g-col-sm-12}
+-   [.text-primary-emphasis]{.text-primary-emphasis}
+-   [.text-secondary-emphasis]{.text-secondary-emphasis}
+-   [.text-success-emphasis]{.text-success-emphasis}
+-   [.text-info-emphasis]{.text-info-emphasis}
+-   [.text-warning-emphasis]{.text-warning-emphasis}
+-   [.text-danger-emphasis]{.text-danger-emphasis}
+-   [.text-light-emphasis]{.text-light-emphasis}
+-   [.text-dark-emphasis]{.text-dark-emphasis}
+:::
+:::
+
+These work inline as well as in fenced divs.
+
+For instance, this is [green]{.text-success} by using...
+
+``` md
+[green]{.text-success}
+```
+
+Or for an entire paragraph...
+
+``` md
+::: {.text-info}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+:::
+```
+
+::: text-info
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+:::
+
+### Highlighting text {.unnumbered}
+
+You can use the following Bootstrap classes to highlight text…
+
+-   `[.text-bg-primary]{.text-bg-primary}` -[.text-bg-primary]{.text-bg-primary}
+-   `[.text-bg-secondary]{.text-bg-secondary}`-[.text-bg-secondary]{.text-bg-secondary}
+-   `[.text-bg-success]{.text-bg-success}`-[.text-bg-success]{.text-bg-success}
+-   `[.text-bg-info]{.text-bg-info}`-[.text-bg-info]{.text-bg-info}
+-   `[.text-bg-danger]{.text-bg-danger}`-[.text-bg-danger]{.text-bg-danger}
+-   `[.text-bg-light]{.text-bg-light}`-[.text-bg-light]{.text-bg-light}
+-   `[.text-bg-dark]{.text-bg-dark}`-[.text-bg-dark]{.text-bg-dark}
+
+### Custom Color {.unnumbered}
+
+Use the Penn State brand colors by using inline styling and the hex code.
+
+-   `[PA Slate]{style="color:#314D64;"}` -[PA Slate]{style="color:#314D64;"}
+-   `[Penn's Forest]{style="color:#4A7729;"}`-[Penn's Forest]{style="color:#4A7729;"}
+-   `[Lion's Roar]{style="color:#BF8226;"}`-[Lion's Roar]{style="color:#BF8226;"}
+-   `[PA Creek]{style="color:#3EA39E;"}`-[PA Creek]{style="color:#3EA39E;"}
+
+## Alignment of text
+
+### Center Align {.unnumbered}
+
+We can center align text using `{.text-center}`.
+
+``` md
+::: {.text-center}
+Some centered text here!
+:::
+```
+
+::: text-center
+Some centered text here!
+:::
+
+OR we if you don't want to add another div then use `<p align="center" > Centered text </p>`...
+
+<p align="center" > Centered text </p>
+
+### Right align {.unnumbered}
+
+We can right align text using `{.text-end}`.
+
+``` md
+::: {.text-end}
+Some text here
+:::
+```
+
+creates...
+
+::: text-end
+Some text here
+:::
+
+OR we if you don't want to add another div then use `<p align="right" > Right text </p>`...
+
+<p align="right" > Right text </p>
+
+## Paragraphs and new lines
+
+For a paragraph, hit enter twice after the last line of text leaving one line of empty code.
+
+To start a new line with out a space use `\` at the end of the line.
+
+## Indent
+
+### Indent a single line {.unnumbered}
+
+You can indent text by putting `|` at the beginning of the line to preserve all spaces.
+
+``` md
+| First line of text not indented
+|   Second line indented
+|        Third line indented even farther
+```
+
+creates...
+
+| First line of text not indented
+|   Second line indented
+|        Third line indented even farther
+
+### Indent a section {.unnumbered}
+
+To indent a section create a fenced div using `:::{.ms-3}`. The number can be changed to your desired indent.
+
+``` md
+::: {.ms-3}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+:::
+```
+
+creates...
+
+::: ms-3
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+:::
+
+## Left border highlights
+
+To add a left border to emphasize a piece of text use `:::{.ms-3 .border-start .border-primary .ps-2}`. \* `ms-3` left indents the section \* `.border-start` puts a border on the left \* `.border-primary` changes the color \[also can use.. `-secondary`, `-warning`, `-danger`, `-light`, `-dark` and can add -`subtle` to the end of any of them\] \* `ps-2` created a left padding
+
+::: {#exm-lefthighlight}
+``` md
+:::{.ms-3 .border-start .border-warning-subtle .ps-2}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+:::
+```
+
+creates...
+
+::: {.ms-3 .border-start .border-warning-subtle .ps-2}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+:::
+:::
+
+## Lists
+
+### Ordered Lists {.unnumbered}
+
+To create a numbered list simply type the number in front of the text.
+
+::: {#exm-numberedlist}
+``` md
+1. First item
+2. Second item
+3. Third item
+```
+
+creates...
+
+1.  First item
+2.  Second item
+3.  Third item
+:::
+
+### Unordered Lists {.unnumbered}
+
+To create an unordered list use `*` or `-` in front of the text.
+
+::: {#exm-unorderedlist}
+``` md
+* this item
+* that item
+* final item
+```
+
+creates...
+
+-   this item
+-   that item
+-   final item
+:::
+
+### Sublists {.unnumbered}
+
+To create a sub list use a tabbed indent. \[Use `a`, `i`, `A`, etc...\]
+
+::: {#exm-sublists}
+``` md
+1. First item
+    a. sublist item 1
+    b. sublist item 2
+2. Second item
+3. Third item
+```
+
+creates...
+
+1.  First item
+    a.  sublist item 1
+    b.  sublist item 2
+2.  Second item
+3.  Third item
+:::
+
+## Escaping Characters
+
+Use `\` in front of any characters that you don't want to render with markdown. For instance, `$` indicates an inline equation but if you wanted to have \$5 you have to 'escape' the dollar sign using `\$5`.

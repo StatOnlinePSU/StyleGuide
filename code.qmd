@@ -1,0 +1,301 @@
+---
+categories: [R, Code]
+image: /assets/file-earmark-code.svg
+---
+
+# Code
+
+Resource: [Quarto -- HTML Code Blocks](https://quarto.org/docs/output-formats/html-code.html#line-numbers)
+
+## Inline Code
+
+For code in paragraph or sentence text us one backtick at the begining and ending of the code.
+
+``` md
+For example the word `false` will like code with the backticks. 
+```
+
+For example the word `false` will like code with the backticks.
+
+## Execute Code
+
+You can create executable code in various languages. Our most common will be R in the STAT courses. To create executable code you'll need to use \`\`\``{language}`.
+
+### R Code {.unnumbered}
+
+::: {#exm-executecode}
+In the .qmd page you can add this code...
+
+```` markdown
+```{{r}}
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot
+```
+````
+
+...which results in this...
+
+```{r eval="true", fig.align="center", out.width="70%"}
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot(x,y)
+```
+:::
+
+## Customizing Code Blocks
+
+There are many customizations that can be made to code blocks by adding a `#|` in the code block.
+
+### Hiding Code {.unnumbered}
+
+For instance, to hide the code that makes the graph above use `#| echo: false`.
+
+```` markdown
+```{{r}}
+#| echo: false
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot
+```
+````
+
+...which results in this...
+
+```{r}
+#| echo: false
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot(x,y)
+```
+
+### Code Folding {.unnumbered}
+
+```` verbatim
+```{{r}}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot
+```
+````
+
+...which results in this...
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot(x,y)
+```
+
+### Code without output {.unnumbered}
+
+To show code without output, add `#| eval: false`.
+
+````{verbatim}
+```{{r}}
+#| eval: false
+
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot
+```
+````
+
+...which results in this...
+
+```{r}
+#| eval: false
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot(x,y)
+```
+
+## Controlling output size
+
+::: {.callout-caution appearance="minimal"}
+**Note!** Our default is to use `out.width="70%"`
+:::
+
+```` markdown
+```{{r, out.width="70%"}}
+#| eval: true
+#| echo: false
+
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot
+```
+````
+
+...which results in this...
+
+```{r , out.width="70%"}
+#| eval: true
+#| echo: false
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot(x,y)
+```
+
+### Aligning the output {.unnumbered}
+
+You can use `#| fig-align:` to align the output as `left`, `center`, or `right`.
+
+```` markdown
+```{{r, out.width="70%"}}
+#| eval: true
+#| echo: false
+#| fig-align: right
+
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot
+```
+````
+
+...which results in this...
+
+```{r , out.width="70%"}
+#| eval: true
+#| echo: false
+#| fig-align: right
+
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot(x,y)
+```
+
+## Auto number the figures
+
+When we create figures using R code, we typically want them to be auto numbered. To do that add `#| label: fig-name` to the top matter in the code block.
+
+```` markdown
+```{{r, out.width="70%"}}
+#| label: fig-plot1
+#| eval: true
+#| echo: false
+
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot
+```
+````
+
+...which results in this...
+
+```{r , out.width="70%"}
+#| label: fig-plot1
+#| eval: true
+#| echo: false
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot(x,y)
+```
+
+::: {.callout-caution appearance="minimal"}
+**Note!** The auto number also auto aligned the figure to 'center.'
+:::
+
+## Overflowing Code
+
+If the rendered equations overflow into the TOC you can add a horizontal scroll bar to the long LaTeX code using `:::{style="overflow-x:auto;overflow-y:hidden;"}`
+
+For example...
+
+``` md
+:::{style="overflow-x:auto;overflow-y:hidden;"}
+$\mu_Y = \beta_0+\beta_1x_1+\beta_2 x_2+\beta_3 x_3+\beta_{12}x_1 x_2+\beta_{13} x_1 x_3$
+
+$\mu_Y = \beta_0+\beta_1 x_1+\beta_2(0)+\beta_3(1)+\beta_{12} x_1(0)+\beta_{13} x_1(1) = (\beta_0+\beta_3)+(\beta_1+\beta_{13})x_1$
+
+$\mu_Y = \beta_0+\beta_1 x_1+\beta_2(0)+\beta_3(0)+\beta_{12} x_1(0)+\beta_{13} x_1(0) = \beta_0+\beta_1 x_1$
+:::
+```
+
+Results in... (use a narrow width screen)
+
+::: {style="overflow-x:auto;overflow-y:hidden;"}
+$\mu_Y = \beta_0+\beta_1x_1+\beta_2 x_2+\beta_3 x_3+\beta_{12}x_1 x_2+\beta_{13} x_1 x_3$
+
+$\mu_Y = \beta_0+\beta_1 x_1+\beta_2(0)+\beta_3(1)+\beta_{12} x_1(0)+\beta_{13} x_1(1) = (\beta_0+\beta_3)+(\beta_1+\beta_{13})x_1$
+
+$\mu_Y = \beta_0+\beta_1 x_1+\beta_2(0)+\beta_3(0)+\beta_{12} x_1(0)+\beta_{13} x_1(0) = \beta_0+\beta_1 x_1$
+:::
+
+## Styling code blocks
+
+We will stay consistent with our code blocks across courses. However, there are some styling options available if needed.
+
+### Code with line numbers {.unnumbered .unlisted}
+
+```` md
+```{{r , out.width="70%"}}
+#| label: fig-plot7
+#| eval: false
+#| echo: true
+#| code-line-numbers: true
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot(x,y)
+```
+````
+
+Results in...
+
+```{r,  out.width="70%"}
+#| label: fig-plot8
+#| eval: false
+#| echo: true
+#| code-line-numbers: true
+
+x <- c(8, 12, 12, 5, 18, 20)
+y <- c(1, 2, 4, 6, 2, 4)
+
+plot(x,y)
+```
+
+### SAS Code {.unnumbered}
+
+Quarto does not have SAS as one it's languages to execute. However, we can make the code look like SAS. We will want to add code line numbers with SAS code.
+
+```{sas}
+#| eval: false
+#| echo: true
+#| code-line-numbers: true
+DATA grades;
+	input name $ 1-15 e1 e2 e3 e4 p1 f1;
+	final = 0.6*e1+e2+e3+e4/4 + 0.2*p1 + 0.2*f1;
+	DATALINES;
+Alexander Smith  78 82 86 69  97 80
+John Simon       88 72 86  . 100 85
+Patricia Jones   98 92 92 99  99 93
+Jack Benedict    54 63 71 49  82 69
+Rene Porter     100 62 88 74  98 92
+;
+RUN;
+
+PROC PRINT data = grades;
+	var name e1 e2 e3 e4 p1 f1 final;
+RUN;
+```

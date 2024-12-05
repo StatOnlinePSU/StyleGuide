@@ -1,0 +1,33 @@
+---
+format: live-html
+---
+# Interactives
+We can run R code directly in the browser.
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{webr}
+for (x in 1:5) {
+  print(10 + x)
+}
+```
+
+
+```{webr}
+install.packages("ggplot2")
+library(ggplot2)
+ggplot(data, aes(x = x_column, y = y_column)) + 
+       geom_line()
+
+```
+
+
+```{webr}
+ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
+# Change the point size, and shape
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+  geom_point(size=2, shape=23)
+```
+
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSVEOgnWjsrp7MOcZ7ZY6wCD2CuYd1c22Ss3rDnjQdHRXsCwz6UDNqGQT8cy1eevOATR8X1DlznSu2S/embed?start=true&loop=false&delayms=30000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

@@ -1,0 +1,95 @@
+---
+categories: [Video, Kaltura, YouTube]
+image: /assets/video.svg
+---
+
+# Video
+
+## YouTube
+
+To embed a YouTube video use the following shortcode. 
+
+* By adding #vid-name the videos will auto number. 
+* Change the embed width with .w-100 (50, 70, 80, etc...)
+
+``` {.markdown shortcodes="false"}
+::: {#vid-name}
+:::{.w-100 .mx-auto }
+{{< video -embedURL- >}}
+:::
+Title of video
+:::
+```
+
+::: {#exm-anova}
+``` {.markdown shortcodes="false"}
+::: {#vid-anovathebasics}
+::: {.w-100 .mx-auto}
+{{< video https://youtu.be/KKni80rvF5I >}}
+:::
+ANOVA: The Basics
+:::
+```
+
+Results in...
+
+::: {#vid-anovathebasics}
+::: {.w-100 .mx-auto}
+{{< video https://youtu.be/KKni80rvF5I >}}
+:::
+
+ANOVA: The Basics
+:::
+:::
+
+## Kaltura
+
+Use the embed code from Kaltura. However, make some slight adjustments. To create the iframe code go to the video in Kaltura. \* Share \> Standard Embed \> Embed with transcript \> 640x640 \> Responsive Sizing
+
+You will get this...
+
+``` md
+<div style="max-width:640px"><div style="position:relative;padding-bottom:100%"><iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2356971/sp/235697100/embedIframeJs/uiconf_id/41416901/partner_id/2356971?iframeembed=true&playerId=kaltura_player&entry_id=1_4rgowzbl&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_syosb0la" width="640" height="640" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="STAT 484 Lesson 1.1" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div></div>
+```
+
+-   Remove the two divs.
+-   Change the width and height to `width="100%" height="690"`
+-   Change the `style` at the bottom to `style="position:relative;top:0;left:0;width:95%;height:640px;border:0"`.
+
+### Shortcode for Kaltura Videos
+
+``` md
+::: {#vid-name}
+::: text-center
+<iframe code from Kaltura>
+:::
+Title of video
+:::
+```
+
+::: {#exm-kaltura}
+<details>
+
+<summary>Show the code</summary>
+
+``` markdown
+::: {#vid-1-1}
+::: text-center
+
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2356971/sp/235697100/embedIframeJs/uiconf_id/41416901/partner_id/2356971?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=1_4rgowzbl&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_v2wkulvp" width="100%" height="690" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="STAT 484 Lesson 1.1" style="position:relative;top:0;left:0;width:95%;height:640px;border:0">
+
+</iframe>
+:::
+:::
+```
+
+</details>
+
+::: {#vid-1-1}
+::: text-center
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2356971/sp/235697100/embedIframeJs/uiconf_id/41416901/partner_id/2356971?iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=1_4rgowzbl&amp;flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&amp;wid=1_v2wkulvp" width="100%" height="690" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="STAT 484 Lesson 1.1" style="position:relative;top:0;left:0;width:95%;height:640px;border:0">
+
+</iframe>
+:::
+:::
+:::

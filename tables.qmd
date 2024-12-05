@@ -1,0 +1,458 @@
+---
+categories: [Tables, Markdown, Options, HTML]
+image: /assets/table.svg
+---
+
+# Tables
+
+## Markdown Tables
+
+::: {#exm-pipe}
+| Term     | Coef  | SE Coef       | T-Value | P-Value              | VIF  |
+|----------|-------|---------------|---------|----------------------|------|
+| Constant | -2546 | 457           | -5.57   | 0.000                |      |
+| Gest_0   | 147.2 | [12.0]{.mark} | 12.29   | [0.000]{.bg-warning} | 1.00 |
+
+: {.w-auto .table-sm}
+
+Is created by...
+
+``` md
+| Term     | Coef  | SE Coef | T-Value | P-Value | VIF  |
+|----------|-------|---------|---------|---------|------|
+| Constant | -2546 | 457     | -5.57   | 0.000   |      |
+| Gest_0   | 147.2 | [12.0]{.mark}    | 12.29   | [0.000]{.bg-warning}| 1.00 |
+
+: {.w-auto .table-sm .table-responsive}
+```
+:::
+
+-   `.w-auto` is a bootstrap class for auto setting the width of the columns based on the content of the table.
+-   `.table-sm` is a bootstrap class that will condense the height of the rows.
+-   add `.table-bordered` to include a light border to all cells
+-   `.table-responsive` is for wide tables to show a scroll bar on smaller screens
+
+Center a table on the page by using `.mx-auto`
+
+| Term     | Coef  | SE Coef | T-Value | P-Value | VIF  |
+|----------|-------|---------|---------|---------|------|
+| Constant | -2546 | 457     | -5.57   | 0.000   |      |
+| Gest_0   | 147.2 | 12.0    | 12.29   | 0.000   | 1.00 |
+
+: {.w-auto .table-sm .mx-auto}
+
+### Aligning content in cells {.unnumbered .unlisted}
+
+To left align content in a column use `|:--------|` To right align content in a column use `|--------:|` To center content in a column use `|:-------:|`
+
+::: {#exm-align}
+``` md
+| left aligned    | center aligned | right aligned |
+|:---------|:------:|--------:|
+| 1 | 3 | 5   |
+|2 | 4 | 6    | 
+
+: {.w-auto .table-sm}
+```
+
+**Result**
+
+| left aligned | center aligned | right aligned |
+|:-------------|:--------------:|--------------:|
+| 1            |       3        |             5 |
+| 2            |       4        |             6 |
+
+: {.w-auto .table-sm}
+:::
+
+### Table Options {.unnumbered}
+
+::: grid
+::: {.g-col-lg-6 .g-col-md-6 .g-col-sm-12}
+#### Striped Rows
+
+``` md
+| left aligned    | center aligned | right aligned |
+|:---------|:------:|--------:|
+| 1 | 3 | 5   |
+|2 | 4 | 6    | 
+
+: {.w-auto .table-sm .table-striped}
+```
+
+Results in...
+
+| left aligned | center aligned | right aligned |
+|:-------------|:--------------:|--------------:|
+| 1            |       3        |             5 |
+| 2            |       4        |             6 |
+
+: {.w-auto .table-sm .table-striped}
+:::
+
+::: {.g-col-lg-6 .g-col-md-6 .g-col-sm-12}
+#### Striped Columns
+
+``` md
+| left aligned    | center aligned | right aligned |
+|:---------|:------:|--------:|
+| 1 | 3 | 5   |
+|2 | 4 | 6    | 
+
+: {.w-auto .table-sm .table-striped-columns}
+```
+
+Results in...
+
+| left aligned | center aligned | right aligned |
+|:-------------|:--------------:|--------------:|
+| 1            |       3        |             5 |
+| 2            |       4        |             6 |
+
+: {.w-auto .table-sm .table-striped-columns}
+:::
+:::
+
+#### Hover
+
+``` md
+| left aligned    | center aligned | right aligned |
+|:---------|:------:|--------:|
+| 1 | 3 | 5   |
+|2 | 4 | 6    | 
+
+: {.w-auto .table-sm .table-hover}
+```
+
+Results in...
+
+| left aligned | center aligned | right aligned |
+|:-------------|:--------------:|--------------:|
+| 1            |       3        |             5 |
+| 2            |       4        |             6 |
+
+: {.w-auto .table-sm .table-hover}
+
+## HTML Tables
+
+Markdown tables are limited to simple table design only. For more complicated tables you can use the html code from our current notes.
+
+-   `::: {.table-responsive}` creates a horizontal scroll bar for wide tables on small screens.
+-   `{=html}` is telling markdown to render html code
+-   `data-quarto-disable-processing="true"` will stop quarto from adding it's own styling to a table. By disabling this the table will render exactly as the html code.
+
+::: {#exm-htmltable}
+
+<details>
+<summary>Show html table code </summary>
+````md
+
+:::{.table-responsive}
+```{=html}
+<table align="center" class="table w-auto mx-auto table-sm table-bordered"
+  data-quarto-disable-processing="true">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="2">Terms</th>
+      <th class="text-center" colspan="2">-----Step 1-----</th>
+      <th class="text-center" colspan="2">-----Step 2-----</th>
+      <th class="text-center" colspan="2">-----Step 3-----</th>
+      <th class="text-center" colspan="2">-----Step 4-----</th>
+    </tr>
+    <tr>
+      <th>Coef</th>
+      <th>P</th>
+      <th>Coef</th>
+      <th>P</th>
+      <th>Coef</th>
+      <th>P</th>
+      <th>Coef</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Constant</td>
+      <td>117.57</td>
+      <td>&nbsp;</td>
+      <td>103.10</td>
+      <td>&nbsp;</td>
+      <td>71.6</td>
+      <td>&nbsp;</td>
+      <td>52.58</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>x4</td>
+      <td>-0.738</td>
+      <td>0.001</td>
+      <td>-0.6140</td>
+      <td>0.000</td>
+      <td>-0.237</td>
+      <td>0.205</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>x1</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>1.440</td>
+      <td>0.000</td>
+      <td>1.452</td>
+      <td>0.000</td>
+      <td>1.468</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <td>x2</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>0.416</td>
+      <td>0.052</td>
+      <td>0.6623</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td>&nbsp;</td>
+      <td>8.96390</td>
+      <td>&nbsp;</td>
+      <td>2.73427</td>
+      <td>&nbsp;</td>
+      <td>2.30874</td>
+      <td>&nbsp;</td>
+      <td>2.40634</td>
+    </tr>
+    <tr>
+      <td>R-sq</td>
+      <td>&nbsp;</td>
+      <td>67.45%</td>
+      <td>&nbsp;</td>
+      <td>97.25%</td>
+      <td>&nbsp;</td>
+      <td>98.23%</td>
+      <td>&nbsp;</td>
+      <td>97.44%</td>
+    </tr>
+    <tr>
+      <td>R-sq(adj)</td>
+      <td>&nbsp;</td>
+      <td>64.50%</td>
+      <td>&nbsp;</td>
+      <td>96.70%</td>
+      <td>&nbsp;</td>
+      <td>97.64%</td>
+      <td>&nbsp;</td>
+      <td>97.44%</td>
+    </tr>
+    <tr>
+      <td>R-sq(pred)</td>
+      <td>&nbsp;</td>
+      <td>56.03%</td>
+      <td>&nbsp;</td>
+      <td>95.54%</td>
+      <td>&nbsp;</td>
+      <td>96.86%</td>
+      <td>&nbsp;</td>
+      <td>96.54%</td>
+    </tr>
+    <tr>
+      <td>Mallows' Cp</td>
+      <td>&nbsp;</td>
+      <td>138.73</td>
+      <td>&nbsp;</td>
+      <td>5.50</td>
+      <td>&nbsp;</td>
+      <td>3.02</td>
+      <td>&nbsp;</td>
+      <td>2.68</td>
+    </tr>
+  </tbody>
+</table>
+```
+:::
+````
+</details>
+
+
+**Output**
+
+```{=html}
+
+<table align="center" class="table w-auto mx-auto table-sm table-bordered"
+  data-quarto-disable-processing="true">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="2">Terms</th>
+      <th class="text-center" colspan="2">-----Step 1-----</th>
+      <th class="text-center" colspan="2">-----Step 2-----</th>
+      <th class="text-center" colspan="2">-----Step 3-----</th>
+      <th class="text-center" colspan="2">-----Step 4-----</th>
+    </tr>
+    <tr>
+      <th>Coef</th>
+      <th>P</th>
+      <th>Coef</th>
+      <th>P</th>
+      <th>Coef</th>
+      <th>P</th>
+      <th>Coef</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Constant</td>
+      <td>117.57</td>
+      <td>&nbsp;</td>
+      <td>103.10</td>
+      <td>&nbsp;</td>
+      <td>71.6</td>
+      <td>&nbsp;</td>
+      <td>52.58</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>x4</td>
+      <td>-0.738</td>
+      <td>0.001</td>
+      <td>-0.6140</td>
+      <td>0.000</td>
+      <td>-0.237</td>
+      <td>0.205</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>x1</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>1.440</td>
+      <td>0.000</td>
+      <td>1.452</td>
+      <td>0.000</td>
+      <td>1.468</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <td>x2</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>0.416</td>
+      <td>0.052</td>
+      <td>0.6623</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td>&nbsp;</td>
+      <td>8.96390</td>
+      <td>&nbsp;</td>
+      <td>2.73427</td>
+      <td>&nbsp;</td>
+      <td>2.30874</td>
+      <td>&nbsp;</td>
+      <td>2.40634</td>
+    </tr>
+    <tr>
+      <td>R-sq</td>
+      <td>&nbsp;</td>
+      <td>67.45%</td>
+      <td>&nbsp;</td>
+      <td>97.25%</td>
+      <td>&nbsp;</td>
+      <td>98.23%</td>
+      <td>&nbsp;</td>
+      <td>97.44%</td>
+    </tr>
+    <tr>
+      <td>R-sq(adj)</td>
+      <td>&nbsp;</td>
+      <td>64.50%</td>
+      <td>&nbsp;</td>
+      <td>96.70%</td>
+      <td>&nbsp;</td>
+      <td>97.64%</td>
+      <td>&nbsp;</td>
+      <td>97.44%</td>
+    </tr>
+    <tr>
+      <td>R-sq(pred)</td>
+      <td>&nbsp;</td>
+      <td>56.03%</td>
+      <td>&nbsp;</td>
+      <td>95.54%</td>
+      <td>&nbsp;</td>
+      <td>96.86%</td>
+      <td>&nbsp;</td>
+      <td>96.54%</td>
+    </tr>
+    <tr>
+      <td>Mallows' Cp</td>
+      <td>&nbsp;</td>
+      <td>138.73</td>
+      <td>&nbsp;</td>
+      <td>5.50</td>
+      <td>&nbsp;</td>
+      <td>3.02</td>
+      <td>&nbsp;</td>
+      <td>2.68</td>
+    </tr>
+  </tbody>
+</table>
+```
+:::
+
+#### Aligning text in cells
+-   To **center** aling a single cell use... `<th class="text-center">`
+-   To **left** align a single cell use... `<th class="text-start">`
+- To **right** align a single cell use... `<th class="text-end">`
+
+#### Background color and variants
+We can use the Bootstrap `bg-` classes to add color variants to to table cells.
+using `<td class="text-center bg-success bg-opacity-50">This is bg-success bg-opacity-50</td>`
+
+```{=html}
+<table class="table w-auto mx-auto table-sm table-bordered" data-quarto-disable-processing="true">
+	<tbody>
+		<tr>
+			<td class="text-center bg-success text-white">This is bg-success text-white</td>
+			
+		</tr>
+		<tr>
+			<td class="text-center bg-success bg-opacity-75 text-white">This is bg-success bg-opacity-75</td>
+			
+		</tr>
+
+		<tr>
+			
+			<td class="text-center bg-success bg-opacity-50" valign="middle">This is bg-success bg-opacity-50</td>
+		
+		</tr>
+		<tr>
+			
+			<td class="text-center bg-success bg-opacity-25" valign="middle">This is bg-success bg-opacity-25
+		</tr>
+	</tbody>
+</table>
+```
+
+Other color choices...
+
+* [bg-warning]{.bg-warning}
+* [bg-secondary]{.bg-secondary}
+* [bg-info]{.bg-info}
+* [bg-dark]{.bg-dark}
+* [.bg-danger]{.bg-danger}
+* [.bg-primary]{.bg-primary}

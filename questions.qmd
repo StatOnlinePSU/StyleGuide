@@ -1,0 +1,27 @@
+---
+title: "Questions Example"
+filters:
+  - naquiz
+---
+
+::: question
+Bill Gates was the founder of:
+
+::: choices
+::: choice
+Apple
+:::
+
+::: {.choice .correct-choice}
+Microsoft
+:::
+
+::: choice
+Facebook
+:::
+
+::: choice
+Google
+:::
+:::
+:::

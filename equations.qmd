@@ -1,0 +1,130 @@
+---
+categories: [LaTeX, Equations]
+image: /assets/calculator.svg
+---
+
+# Equations
+
+## Inline equations
+
+Equations will use the LaTeX code from the current notes in Drupal.
+
+For inline equations use a single \$.
+
+::: {#exm-equexample1}
+Now, why do we care about mean squares? Because their expected values suggest how to test the null hypothesis $H_{0} \colon \beta_{1} = 0$ against the alternative hypothesis $H_{A} \colon \beta_{1} ≠ 0$.
+
+Is created by...
+
+``` md
+Now, why do we care about mean squares? Because their expected values suggest how to test the null hypothesis $H_{0} \colon \beta_{1} = 0$ against the alternative hypothesis $H_{A} \colon \beta_{1} ≠ 0$.
+```
+:::
+
+::: {.callout-caution appearance="minimal"}
+### LaTeX: The `\text{}` Command
+
+When words appear in equations, use the `\text{}` command. This will allow the equation to read correctly on screen readers, which may otherwise read each letter separately. This:
+
+$\text{density}=\dfrac{\text{mass}}{\text{volume}}$
+
+Is created from this:
+
+``` md
+$\text{density}=\dfrac{\text{mass}}{\text{volume}}$
+```
+:::
+
+## Block Equations
+
+For block equations use a double \$\$.
+
+::: {#exm-eqnexample2}
+$$E(MSR)=\sigma^2+\beta_{1}^{2}\sum_{i=1}^{n}(X_i-\bar{X})^2$$
+
+Is created by...
+
+``` md
+$$E(MSR)=\sigma^2+\beta_{1}^{2}\sum_{i=1}^{n}(X_i-\bar{X})^2$$
+```
+:::
+
+::: {.callout-caution appearance="minimal"}
+**Note!** Some LaTeX does not need the delimiters to render. For instance...
+
+$$\begin{align}
+b_{0}&=b_{0}^{*}-b_{1}^{*}\bar{x}+b_{11}^{*}\bar{x}^{2}\\
+b_{1}&= b_{1}^{*}-2b_{11}^{*}\bar{x}\\
+b_{11}&= b_{11}^{*}\\
+\end{align}$$
+
+Is created from...
+
+``` md
+\begin{align}
+b_{0}&=b_{0}^{*}-b_{1}^{*}\bar{x}+b_{11}^{*}\bar{x}^{2}\\
+b_{1}&= b_{1}^{*}-2b_{11}^{*}\bar{x}\\
+b_{11}&= b_{11}^{*}\\
+\end{align}
+```
+
+However, without the delimiters you will not be able to preview it in the IDE.
+:::
+
+## Formatting Multi-line Block Equations in LaTeX
+
+In order to get a multi-line equation to align so that the equals sign is always in the same place, use the `\begin{}` and `\end{}` commands to create an `align` environment, like so. Note that the equals sign must be preceeded by an &, and that every line (except for the final one) must end in a `\\`.
+
+``` md
+$$\begin{align}
+x &= 1+1+1 \\
+&= 2+1 \\
+&= 3
+\end{align}$$
+```
+
+This will result in this equation:
+
+$$\begin{align}
+x &= 1+1+1 \\
+&= 2+1 \\
+&= 3
+\end{align}$$
+
+::: {.callout-caution appearance="minimal"}
+**Note!** While the `eqnarray` environment performs an extremely similar role to `align`, it's older, less flexible, and has issues with inconsistent spacing (for more details, read [Avoid eqnarray!](https://tug.org/pracjourn/2006-4/madsen/madsen.pdf) here). For the sake of brevity: just use `align`, it's better in every way.
+:::
+
+## Auto Number and Referencing Equations
+
+Depending on the instructor and the course, you may want to number the equations. Quarto has `-eq` as a built in cross reference type.
+
+::: {#exm-autorefeqns}
+$$E(MSR)=\sigma^2+\beta_{1}^{2}\sum_{i=1}^{n}(X_i-\bar{X})^2$$ {#eq-name}
+
+Is created by adding `{#eq-name}` after the equation.
+
+``` md
+$$E(MSR)=\sigma^2+\beta_{1}^{2}\sum_{i=1}^{n}(X_i-\bar{X})^2$$ {#eq-name}
+```
+
+The equation can now be referenced elsewhere in the document like this (@eq-name).
+
+Using... `(@eq-name)`
+:::
+
+## Handling long equations with scroll bar
+
+For equations that extend beyond the viewing area on small screens we can add a scroll bar.
+
+``` md
+:::{style="overflow-x:auto;overflow-y:hidden;"}
+$$\text{Var}(x_t) = \text{Var} \left(\sum_{j=0}^{\infty} \phi^j_1w_{t-j} = \sum_{j=0}^{\infty}\text{Var}(\phi^j_1w_{t-j}) = \sum_{j=0}^{\infty}\phi^{2j}_1\sigma^2_w = \sigma^2_w \sum_{j=0}^{\infty}\phi^{2j}_1 = \frac{\sigma^2_w}{1-\phi^2_1} \right)$$
+:::
+```
+
+View on small screen...
+
+::: {style="overflow-x:auto;overflow-y:hidden;"}
+$$\text{Var}(x_t) = \text{Var} \left(\sum_{j=0}^{\infty} \phi^j_1w_{t-j} = \sum_{j=0}^{\infty}\text{Var}(\phi^j_1w_{t-j}) = \sum_{j=0}^{\infty}\phi^{2j}_1\sigma^2_w = \sigma^2_w \sum_{j=0}^{\infty}\phi^{2j}_1 = \frac{\sigma^2_w}{1-\phi^2_1} \right)$$
+:::

@@ -1,0 +1,214 @@
+---
+categories: [Columns, Tabs, Grids]
+image: /assets/layout-text-window.svg
+---
+
+# Layout
+
+## Columns using `{.grid}`
+
+::: grid
+::: {.g-col-lg-6 .g-col-md-6 .g-col-sm-12}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+:::
+
+::: {.g-col-lg-6 .g-col-md-6 .g-col-sm-12}
+![Random forest](assets/randomtrees.png){#fig-temps .lightbox fig-alt="Forest full of trees" fig-align="center" width="50%"}
+:::
+:::
+
+### Code for grids {.unnumbered .unlisted}
+
+Bootstrap layout divides the width of the page into 12 parts. So for example full width is 12 and half is 6. The lg, md, and sm, indicate the width of that section on large, medium, and small width screens, respectively.
+
+``` md
+::: {.grid}
+
+::: {.g-col-lg-6  .g-col-md-6 .g-col-sm-12}
+
+first column stuff
+:::
+
+::: {.g-col-lg-6  .g-col-md-6 .g-col-sm-12}
+
+second column stuff
+
+:::
+
+:::
+```
+
+#### More than 2 columns with `grid`
+
+Add more columns...
+
+``` md
+::: {.grid}
+
+::: {.g-col-lg-6  .g-col-md-6 .g-col-sm-12}
+
+first column stuff
+:::
+
+::: {.g-col-lg-6  .g-col-md-6 .g-col-sm-12}
+
+second column stuff
+
+:::
+
+::: {.g-col-lg-6  .g-col-md-6 .g-col-sm-12}
+
+third column stuff
+
+:::
+
+:::
+```
+
+## Columns using `layout`
+
+Use `::: {layout="[60,40]" layout-valign="center"}` as a fenced div and adjust the numbers as needed. You can also adjust the vertical alignment to top or bottom. Leave one space to start the next column.
+
+::: {#exm-layout}
+::: {layout="[60,40]" layout-valign="center"}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+![Random forest](assets/randomtrees.png){.lightbox fig-alt="Forest full of trees" fig-align="center" width="70%"}
+:::
+
+Is created by...
+
+``` markdown
+::: {layout="[60,40]" layout-valign="center"}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+![Random forest](assets/randomtrees.png){#fig-temps fig-alt="Forest full of trees" fig-align="center" width="70%" .lightbox}
+:::
+```
+:::
+
+#### More than 2 columns with `layout`
+
+You can add more widths to the layout to create more columns. Here's and example of `{layout="[30,30, 30]"`
+
+::: {#exm-layout2}
+::: {layout="[30,30, 30]" layout-valign="center"}
+![Random forest](assets/randomtrees.png){.lightbox fig-alt="Forest full of trees" fig-align="center" width="70%"}
+
+![Random forest](assets/randomtrees.png){.lightbox fig-alt="Forest full of trees" fig-align="center" width="70%"}
+
+![Random forest](assets/randomtrees.png){.lightbox fig-alt="Forest full of trees" fig-align="center" width="70%"}
+:::
+
+Is created by...
+
+``` md
+::: {layout="[30,30, 30]" layout-valign="center"}
+![Random forest](assets/randomtrees.png){#fig-temps fig-alt="Forest full of trees" fig-align="center" width="70%" .lightbox}
+
+![Random forest](assets/randomtrees.png){#fig-temps fig-alt="Forest full of trees" fig-align="center" width="70%" .lightbox}
+
+![Random forest](assets/randomtrees.png){#fig-temps fig-alt="Forest full of trees" fig-align="center" width="70%" .lightbox}
+:::
+```
+:::
+
+## Tabs
+
+``` md
+::: {.panel-tabset}
+
+## First panel
+
+### Header {.unnumbered  .unlisted}
+Content of first panel
+
+## Second panel
+
+Content of second panel
+
+## Third panel
+
+Content of third panel
+
+## Fourth panel
+
+Content of fourth panel
+
+:::
+```
+
+::: {.panel-tabset}
+
+## First panel
+
+### Header {.unnumbered  .unlisted}
+Content of first panel
+
+## Second panel
+
+Content of second panel
+
+## Third panel
+
+Content of third panel
+
+## Fourth panel
+
+Content of fourth panel
+
+:::
+
+::: {#exm-tabs}
+::: panel-tabset
+## R
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Minitab
+
+::: minitab_output
+#### Coefficients
+
+| Term     | Coef  | SE Coef       | T-Value | P-Value | VIF  |
+|----------|-------|---------------|---------|---------|------|
+| Constant | -2546 | 457           | -5.57   | 0.000   |      |
+| Gest_0   | 147.2 | [12.0]{.mark} | 12.29   | 0.000   | 1.00 |
+
+: {.w-auto .table-sm}
+
+#### Regression Equation
+
+[Wgt_0 = -2546 + 147.2 Gest_0]{.mark}
+:::
+:::
+
+Is created by...
+
+``` md
+::: {.panel-tabset}
+
+## R
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Minitab
+
+::: minitab_output
+#### Coefficients
+
+| Term     | Coef  | SE Coef | T-Value | P-Value | VIF  |
+|----------|-------|---------|---------|---------|------|
+| Constant | -2546 | 457     | -5.57   | 0.000   |      |
+| Gest_0   | 147.2 | [12.0]{.mark}    | 12.29   | 0.000   | 1.00 |
+
+: {.w-auto .table-sm}
+
+#### Regression Equation
+
+[Wgt_0 = -2546 + 147.2 Gest_0]{.mark}
+:::
+
+:::
+```
+:::

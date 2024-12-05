@@ -1,0 +1,860 @@
+---
+categories: [Callouts, Alerts, Modals, Accordions, Questions]
+image: /assets/tools.svg
+
+  
+filters:
+  - naquiz
+---
+
+# Components
+
+## Callouts
+
+::: {.callout-caution appearance="minimal"}
+**Note!** This is our most commonly used callout box for important notes in the notes.
+:::
+
+::: ms-3
+``` md
+::: {.callout-caution appearance="minimal"}
+**Note!** This is our most commonly used callout box for important notes in the notes.
+:::
+```
+:::
+
+Note that there are five types of callouts, including: `note`, `warning`, `important`, `tip`, and `caution`.
+
+::: callout-tip
+## Tip with Title
+
+This is an example of a callout with a title.
+:::
+
+::: ms-3
+``` md
+::: {.callout-tip}
+## Tip with Title
+
+This is an example of a callout with a title.
+:::
+```
+:::
+
+::: {.callout-caution collapse="true"}
+## Expand To Learn About Collapse
+
+This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+:::
+
+::: ms-3
+``` md
+::: {.callout-caution collapse="true"}
+## Expand To Learn About Collapse
+
+This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+:::
+```
+:::
+
+## Alerts
+
+We'll mostly use callouts in our online notes, there maybe times to use an alert.
+
+
+
+````md
+```{=html}
+<div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div>
+```
+
+````         
+
+creates...
+```{=html}
+<div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div>
+```
+
+Other classes include...
+
+```{=html}
+<div class="alert alert-secondary" role="alert">
+  A simple secondary alert—check it out!
+</div>
+<div class="alert alert-success" role="alert">
+  A simple success alert—check it out!
+</div>
+<div class="alert alert-danger" role="alert">
+  A simple danger alert—check it out!
+</div>
+<div class="alert alert-warning" role="alert">
+  A simple warning alert—check it out!
+</div>
+<div class="alert alert-info" role="alert">
+  A simple info alert—check it out!
+</div>
+<div class="alert alert-light" role="alert">
+  A simple light alert—check it out!
+</div>
+<div class="alert alert-dark" role="alert">
+  A simple dark alert—check it out!
+</div>
+```
+::: {.alert .alert-dark}
+A simple dark alert—check it out!
+:::
+
+## Modals
+
+We can create buttons with content that is hidden until the user selects the button. The content is then displayed in a new pop up over the content on the page. We can do this html code.
+
+````md
+```{{=html}}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-default collapsed" data-bs-toggle="modal" data-bs-target="#pattern1example">
+  Pattern 1 Example
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="pattern1example" tabindex="-1" aria-labelledby="pattern1exampleLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pattern1exampleLabel">Pattern 1 Example</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <p>Non-zero values at lag d and perhaps other lags beyond d, with no particular pattern; correlations near 0 at other lags.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+````
+
+creates...
+
+```{=html}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-default collapsed" data-bs-toggle="modal" data-bs-target="#pattern1example">
+  Pattern 1 Example
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="pattern1example" tabindex="-1" aria-labelledby="pattern1exampleLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pattern1exampleLabel">Pattern 1 Example</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <p>Non-zero values at lag d and perhaps other lags beyond d, with no particular pattern; correlations near 0 at other lags.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+
+To get the modal window to expand to the size of the modal content add this to both .scss files:
+
+````md
+.modal-dialog{
+  margin: auto !important;
+  max-width: 800px !important;  
+  width: fit-content !important;
+ }
+````
+
+For different button color variations see @sec-btncolor.
+
+::: {.callout-caution appearance="minimal"}
+**Note!**\
+When using multiple modals/show-hides/accordions on a single page ensure a unique `id` in the html code for each one.
+:::
+
+## Show/hide buttons
+
+Use the following to create a show/hide control.
+
+````md
+```{=html}
+<button class="btn btn-outline-success collapsed"  type="submit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Answer
+</button>
+```
+:::: {#collapseExample .collapse}
+::: {.card .card-body .bg-light}
+ Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+:::
+:::
+````
+
+creates...
+
+```{=html}
+<button class="btn btn-outline-success collapsed"  type="submit" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Answer
+</button>
+```
+
+::: {#collapseExample .collapse}
+::: {.card .card-body .bg-light}
+Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+:::
+:::
+
+### Button Color {#sec-btncolor}
+
+Color variations include...
+
+```{=html}
+  <button class="btn btn-dark collapsed" type="button" >
+     btn-dark
+  </button>
+```
+```{=html}
+  <button class="btn btn-default collapsed" type="button" >
+     btn-default
+  </button>
+```
+```{=html}
+  <button class="btn btn-light collapsed" type="button" >
+     btn-light
+  </button>
+```
+```{=html}
+  <button class="btn btn-info collapsed" type="button" >
+     btn-info
+  </button>
+```
+```{=html}
+  <button class="btn btn-success collapsed" type="button" >
+     btn-success
+  </button>
+```
+```{=html}
+  <button class="btn btn-danger collapsed" type="button" >
+     btn-danger
+  </button>
+```
+```{=html}
+  <button class="btn btn-warning collapsed" type="button" >
+     btn-warning
+  </button>
+```
+```{=html}
+  <button class="btn btn-secondary collapsed" type="button" >
+     btn-secondary
+  </button>
+```
+```{=html}
+  <button class="btn btn-outline-dark collapsed" type="button" >
+    btn-outline-dark
+  </button>
+```
+```{=html}
+  <button class="btn btn-outline-default collapsed" type="button" >
+     btn-outline-default
+  </button>
+```
+```{=html}
+  <button class="btn btn-outline-light collapsed" type="button" >
+     btn-outline-light
+  </button>
+```
+```{=html}
+  <button class="btn btn-outline-info collapsed" type="button" >
+     btn-outline-info
+  </button>
+```
+```{=html}
+  <button class="btn btn-outline-success collapsed" type="button" >
+     btn-outline-success
+  </button>
+```
+```{=html}
+  <button class="btn btn-outline-danger collapsed" type="button" >
+     btn-outline-danger
+  </button>
+```
+```{=html}
+  <button class="btn btn-outline-warning collapsed" type="button" >
+     btn-outline-warning
+  </button>
+```
+```{=html}
+  <button class="btn btn-outline-secondary collapsed" type="button" >
+     btn-outline-secondary
+  </button>
+```
+
+
+## Accordions
+
+We can use bootstrap accordions along with css to style an accordion.
+
+Each `id=` attribute should have a unique name, and attributes that refer to those ids should be altered accordingly.
+
+The heading level on the button is `<h3>` here, but should be adjusted follow the section heading level.
+
+Omit the `data-bs-parent` attribute on each .accordion-collapse to make accordion items stay open when another item is opened.
+
+### All html
+
+````md
+```{=html}
+<div class="accordion" id="accordion-id1">
+  <div class="accordion-item">
+    <h3 class="accordion-header" id="header-id1">
+     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-id1" aria-expanded="false" aria-controls="panel-id1">
+        Accordion Header Text
+      </button>
+    </h3>
+    <div id="panel-id1" class="accordion-collapse collapse show" data-bs-parent="#accordion-id1" aria-labelledby="header-id1">
+      <div class="accordion-body">
+        Panel text. Note that it is shown by default. This can be modified in the div class above.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h3 class="accordion-header" id="header-id2">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-id2" aria-expanded="false" aria-controls="panel-id2">
+        Accordion Header Text
+      </button>
+    </h3>
+    <div id="panel-id2" class="accordion-collapse collapse" data-bs-parent="#accordion-id1" aria-labelledby="header-id2">
+      <div class="accordion-body">
+        Panel text. Note that it is hidden by default.
+      </div>
+    </div>
+  </div>
+<div>
+```
+````
+
+creates...
+
+```{=html}
+<div class="accordion" id="accordion-id1">
+  <div class="accordion-item">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-id1" aria-expanded="false" aria-controls="panel-id1">
+      <h3 class="accordion-header" id="header-id1">Accordion Header Text</h3>
+    </button>
+    <div id="panel-id1" class="accordion-collapse collapse show" data-bs-parent="#accordion-id1" aria-labelledby="header-id1">
+      <div class="accordion-body">
+        Panel text. Note that it is shown by default. This can be modified in the div class above.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-id2" aria-expanded="false" aria-controls="panel-id2">
+      <h3 class="accordion-header" id="header-id2">Accordion Header Text</h3>
+    </button>
+    </h3>
+    <div id="panel-id2" class="accordion-collapse collapse" data-bs-parent="#accordion-id1" aria-labelledby="header-id2">
+      <div class="accordion-body">
+        Panel text. Note that it is hidden by default.
+      </div>
+    </div>
+  </div>
+<div>
+```
+
+### Mixing HTML with Markdown, R, SAS, LaTeX, and other code
+
+HTML elements only close when they encounter their associated `</>` end tag. In order to insert other kinds of code into an HTML code block, end the HTML code block early using ```, then include another HTML code block farther down that has the necessary end tags.
+
+This example features LaTeX math in an HTML accordion, but the same principle applies to everything from Markdown tables to R code blocks.
+
+This...
+
+````md
+```{=html}
+<div class="accordion" id="mixedcode-accordion">
+  <div class="accordion-item">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exm-panel" aria-expanded="false" aria-controls="exm-panel">
+      <h3 class="accordion-header" id="mixedcode-header">LaTeX in an HTML Element</h3>
+    </button>
+    <div id="exm-panel" class="accordion-collapse collapse" aria-labelledby="exm-header">
+      <div class="accordion-body">
+```
+
+$$\sum{x^2+2}$$
+
+```{=html}
+      </div>
+    </div>
+  </div>
+</div>
+```
+````
+
+creates...
+
+```{=html}
+<div class="accordion" id="mixedcode-accordion">
+  <div class="accordion-item">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mixedcode-panel" aria-expanded="false" aria-controls="mixedcode-panel">
+      <h3 class="accordion-header" id="mixedcode-header">R Code in an HTML Element</h3>
+    </button>
+    <div id="mixedcode-panel" class="accordion-collapse collapse" aria-labelledby="mixedcode-header">
+      <div class="accordion-body">
+```
+
+$$\sum{x^2+2}$$
+
+```{=html}
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Interactive Questions
+
+We can add interactive quizzes using...
+
+::: ms-3
+``` md
+::: question
+Bill Gates was the founder of:
+
+::: choices
+::: choice
+Apple
+:::
+
+::: {.choice .correct-choice}
+Microsoft
+:::
+
+::: choice
+Facebook
+:::
+
+::: choice
+Google
+:::
+:::
+:::
+```
+:::
+
+But first you have to add this to the top of the .qmd file where you intend to use the questions.
+
+::: ms-3
+``` md
+---
+filters:
+  - naquiz
+---
+```
+:::
+
+Results for a basic quiz:
+
+::: question
+Bill Gates was the founder of:
+
+::: choices
+::: choice
+Apple
+:::
+
+::: {.choice .correct-choice}
+Microsoft
+:::
+
+::: choice
+Facebook
+:::
+
+::: choice
+Google
+:::
+:::
+:::
+
+
+### A quiz with a clear answer button {.unnumbered  .unlisted}
+
+:::::{.question}
+Bill Gates was the founder of:
+
+::::{.choices}
+
+:::{.choice}
+Apple
+:::  
+
+:::{.choice .correct-choice}
+Microsoft
+:::
+
+:::{.choice}
+Facebook  
+:::
+
+:::{.choice}
+Google   
+:::
+
+:::{.button-clear title="Clear answer" button-class="btn btn-light "}
+:::
+
+::::
+:::::
+
+
+### A quiz with additional buttons {.unnumbered  .unlisted}
+:::::{.question}
+Bill Gates was the founder of:
+
+::::{.choices}
+
+:::{.choice}
+Apple
+:::  
+
+:::{.choice .correct-choice}
+Microsoft
+:::
+
+:::{.choice}
+Facebook  
+:::
+
+:::{.choice}
+Google   
+:::
+
+:::{.button-clear title="Clear answer" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+::::{.btn-group}
+:::{.button-hint title="Show hint" button-class="btn btn-warning btn-xs"}
+The company name starts with an 'M'...
+:::
+
+:::{.button-answer title="Show Answer" button-class="btn btn-info btn-xs"}
+Bill Gates and Paul Allen founded Microsoft on April 4, 1975.
+:::
+::::
+
+
+### A quiz with additional information in callouts {.unnumbered  .unlisted}
+
+:::::{.question}
+Bill Gates was the founder of:
+
+::::{.choices}
+
+:::{.choice}
+Apple
+:::  
+
+:::{.choice .correct-choice}
+Microsoft
+:::
+
+:::{.choice}
+Facebook  
+:::
+
+:::{.choice}
+Google   
+:::
+
+:::{.button-clear title="Clear answer" button-class="btn btn-light btn-xs"}
+:::
+
+::::
+:::::
+
+
+::: {.callout-tip collapse="true" icon="false"}
+## Hint
+
+The company name starts with an 'M'...
+:::
+
+::: {.callout-note collapse="true" icon="false"}
+## Answer
+
+Bill Gates and Paul Allen founded Microsoft on April 4, 1975.
+:::
+For more details see.. [naquiz on git](https://github.com/nareal/naquiz/blob/main/example.qmd)
+
+## Tooltips/Popovers
+We can add tooltips to Quarto using Bootstrap.
+
+
+### Popovers in Boostrap {.unnumbered}
+
+Load the following on the qmd before using the Tooltip...
+
+````markdown
+```{=html}
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    // enable all tooltips with data-bs-toggle
+    // see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+    var tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  });
+</script>
+```
+````
+
+```{=html}
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    // enable all tooltips with data-bs-toggle
+    // see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+    var tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  });
+</script>
+```
+
+
+
+```{=html}
+<p class="muted">Placeholder text to demonstrate some <a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">inline links</a> with tooltips. This is now just filler, no killer. Content placed here just to mimic the presence of <a href="#" data-bs-toggle="tooltip" data-bs-title="Another tooltip">real text</a>. And all that just to give you an idea of how tooltips would look when used in real-world situations. So hopefully you've now seen how <a href="#" data-bs-toggle="tooltip" data-bs-title="Another one here too">these tooltips on links</a> can work in practice, once you use them on <a href="#" data-bs-toggle="tooltip" data-bs-title="The last tip!">your own</a> site or project.</p>
+```
+
+
+```{=html}
+<button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
+  Tooltip on top
+</button> <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right">
+  Tooltip on right
+</button> <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">
+  Tooltip on bottom
+</button> <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Tooltip on left">
+  Tooltip on left
+</button>
+```
+
+created by...
+
+````markdown
+```{html}
+<button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
+  Tooltip on top
+</button> <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right">
+  Tooltip on right
+</button> <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">
+  Tooltip on bottom
+</button> <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Tooltip on left">
+  Tooltip on left
+</button>
+```
+````
+
+Tooltips can be placed in tables using...
+
+````markdown
+<td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="1" class="bi bi-lightbulb text-warning">?</i></td>
+````
+
+```{=html}
+<table align="center" class="table  mx-auto table-sm table-responsive table-bordered" data-quarto-disable-processing="true">
+
+    <thead>
+        <tr>
+            <th scope="row">
+                
+                    Source
+                
+            </th>
+            <th scope="col">
+                
+                    DF
+                
+            </th>
+            <th scope="col">
+                
+                    Adj SS
+                
+            </th>
+            <th scope="col">
+                
+                    Adj MS
+                
+            </th>
+            <th scope="col">
+                
+                    F-Value
+                
+            </th>
+            <th scope="col">
+                
+                    P-Value
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">
+                
+                    Regression
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="1" class="bi bi-lightbulb text-warning">?</i>
+                
+            </td>
+            <td>
+                
+                    12.597
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="12.597" class="bi bi-lightbulb text-warning" >?</i>
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="12.597/0.225=55.987" class="bi bi-lightbulb text-warning" >?</i>
+            </td>
+            <td>
+                
+                    0.000
+                
+            </td>
+        </tr>
+        <tr>
+            <td scope="row">
+                
+                    Residual Error
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="13" class="bi bi-lightbulb text-warning" >?</i>
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="15.522-12.597=2.925" class="bi bi-lightbulb text-warning" >?</i>
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="0.225" class="bi bi-lightbulb text-warning" >?</i>
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td class="pl-3" scope="row">
+                
+                    Lack of Fit
+                
+            </td>
+            <td>
+                
+                    3
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="2.925-0.157=2.768" class="bi bi-lightbulb text-warning" >?</i>
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="0.923" class="bi bi-lightbulb text-warning" >?</i>
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="0.923/0.0157=58.790" class="bi bi-lightbulb text-warning" >?</i>
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="1-F<sub>(3,10)</sub><58.790=1-1.000=0.000" class="bi bi-lightbulb text-warning" >?</i>
+                
+            </td>
+        </tr>
+        <tr>
+            <td class="pl-3" scope="row">
+                
+                    Pure Error
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="10" class="bi bi-lightbulb text-warning" >?</i>
+                
+            </td>
+            <td>
+                
+                    0.157
+                
+            </td>
+            <td><i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="0.0157" class="bi bi-lightbulb text-warning" >?</i>
+                
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td scope="row">
+                
+                    Total
+                
+            </td>
+            <td>
+                
+                    14
+                
+            </td>
+            <td>
+                
+                    15.522
+                
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </tbody>
+</table>
+```
+
+::: {.callout-caution appearance="minimal"}
+**Note from Bootstrap on Accessibility of Popovers!** \
+Keep popovers accessible to keyboard and assistive technology users by only adding them to HTML elements that are traditionally keyboard-focusable and interactive (such as links or form controls). While other HTML elements can be made focusable by adding tabindex="0", this can create annoying and confusing tab stops on non-interactive elements for keyboard users, and most assistive technologies currently do not announce popovers in this situation. Additionally, do not rely solely on hover as the trigger for your popovers as this will make them impossible to trigger for keyboard users.
+
+Avoid adding an excessive amount of content in popovers with the html option. Once popovers are displayed, their content is tied to the trigger element with the aria-describedby attribute, causing all of the popover’s content to be announced to assistive technology users as one long, uninterrupted stream.
+
+Popovers do not manage keyboard focus order, and their placement can be random in the DOM, so be careful when adding interactive elements (like forms or links), as it may lead to an illogical focus order or make the popover content itself completely unreachable for keyboard users. In cases where you must use these elements, consider using a modal dialog instead.^[[Source: Bootstrap Popovers](https://getbootstrap.com/docs/5.3/components/popovers/)]
+:::
+
+## Footnotes
+Footnotes are automatically created (and numbered) by adding `^[footnote text here]` after the text you want to cite.
+
+```md
+This text has a source ^[This is the source which can also be a link]
+```
+This text has a source ^[This is the source which can also be a link]
+
